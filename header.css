@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  font-family: 'Exo', sans-serif;
+}
+
+.main-header {
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.top-bar, .bottom-bar {
+  display: flex;
+  align-items: center;
+  height: 79px;
+  background: #f3f4f3;
+  padding: 0 2vw;
+  box-sizing: border-box;
+}
+
+.top-bar {
+  justify-content: flex-start;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.logo {
+  height: 45px;
+  margin-right: 8px;
+}
+
+.search-container {
+  position: relative;
+  width: 222px;
+  margin-right: 200px;
+  margin-left: 0px;
+}
+
+.search-input {
+  width: 100%;
+  height: 38px;
+  border-radius: 20px;
+  border: none;
+  padding: 0 40px 0 32px;
+  font-size: 18px;
+  background: #fff;
+  color: #bdbdbd;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bdbdbd;
+  font-size: 20px;
+}
+
+.profile-icon img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f3f4f3;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.lang-switch {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #222;
+  cursor: pointer;
+  margin-left: 12px;
+  margin-right: 16px;
+  padding: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+/* Group right-side elements for alignment */
+.top-bar {
+  gap: 0;
+}
+.top-bar .logo {
+  flex-shrink: 0;
+}
+.top-bar .search-container,
+.top-bar .profile-icon,
+.top-bar .lang-switch {
+  /* group right elements */
+}
+.top-bar {
+  /* Use a spacer to push right elements */
+}
+.top-bar .spacer {
+  flex: 1;
+}
+
+.bottom-bar {
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+.header-title {
+  font-family: 'Exo', sans-serif;
+  font-weight: 700;
+  font-size: 29px;
+  margin-right: 48px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+}
+
+.nav-link {
+  font-family: 'Exo', sans-serif;
+  font-size: 18px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 400;
+  position: relative;
+  padding: 0 4px;
+}
+
+.nav-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 32px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .top-bar, .bottom-bar {
+    flex-direction: column;
+    height: auto;
+    padding: 8px 2vw;
+    gap: 8px;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    background: #f3f4f3;
+    position: absolute;
+    left: 0;
+    top: 158px;
+    z-index: 10;
+    padding: 16px 0;
+  }
+  .hamburger {
+    display: block;
+  }
+  .bottom-bar {
+    position: relative;
+  }
+}
+
+/* Show menu when hamburger is active (add JS for toggling) */
+.main-header.menu-open .nav-menu {
+  display: flex;
+} 
