@@ -1,0 +1,312 @@
+  <!DOCTYPE html>
+  <html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Navbar RAISE Replica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+      :root {
+        --font-base: 'Exo', sans-serif;
+        --color-bg-light: #ffffff;
+        --color-bg-white: #FFFFFF;
+        --color-text: #000000;
+        --color-muted: #666666;
+        --max-width: 1215px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-base);
+        background-color: var(--color-bg-white);
+        color: var(--color-text);
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 3px;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: var(--color-bg-white);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Top bar */
+      .top-bar {
+        background-color: var(--color-bg-light);
+        padding: 15px 0;
+        border-bottom: 1px solid #acacac;
+        height: 80px;
+      }
+
+      .top-bar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-container img {
+        height: 44px;
+        width: 220px;
+      }
+
+      .user-actions {
+        display: flex;
+        align-items: center;
+        gap: 55px;
+      }
+
+      .search-form {
+        position: relative;
+      }
+
+      .search-form .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        font-size: 13px;
+        color: #999999;
+      }
+
+      .search-form input {
+        border: 1px solid #E0E0E0;
+        border-radius: 50px;
+        padding: 8px 15px 8px 40px;
+        font-size: 16px;
+        font-family: var(--font-base);
+        width: 210px;
+      }
+
+      .search-form input::placeholder {
+        color: #999;
+      }
+
+      .login-icon img {
+      width: 33px;
+      height: 33px;
+      margin-left: -45px;
+      border-radius: 50%; /* Opzionale: per renderla rotonda */
+      object-fit: cover;
+    }
+
+      .language-selector {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      /* Navbar */
+      .main-nav {
+        background-color: var(--color-bg-white);
+        height: 80px;
+      }
+
+      .main-nav-inner {
+        display: flex;
+        align-items: center;
+        padding: 25px 0 35px 0;
+        position: relative;
+      }
+      
+      .page-title {
+        font-size: 23px;
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--color-text);
+        margin-left: 11px;
+        position: absolute;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0 auto;
+        padding-left: 200px; /* Spazio per il titolo */
+        padding-right: 240px; /* Spazio per allineare "Chi siamo" con la search */
+      }
+
+      .nav-menu li {
+        margin: 0 29px; /* Spazio tra le voci di menu */
+      }
+
+      .main-nav .nav-link {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--color-text);
+        text-decoration: none;
+        position: relative;
+        transition: opacity 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .main-nav .nav-link:hover {
+        opacity: 0.7;
+      }
+
+      .main-nav .nav-link.active {
+        font-weight: 700;
+      }
+
+      .main-nav .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35px;
+        height: 12px;
+        background-color: var(--color-muted);
+      }
+
+      /* Stili per il responsive */
+      .mobile-menu-button {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .hamburger-line {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        margin: 5px 0;
+        margin-right: 12px;
+        transition: 0.4s;
+      }
+
+      @media (max-width: 1024px) {
+        .user-actions,
+        .main-nav-inner .page-title,
+        .main-nav-inner .nav-menu {
+          display: none;
+        }
+        @media {
+        .container {
+          max-width: var(--max-width);
+          margin: 0 auto;
+          padding: 0 30px;
+        }
+      }
+        .main-nav {
+          display: none; /* Nascondi la barra di navigazione di default */
+        }
+        
+        .main-nav.active {
+          display: block; /* Mostra quando il menu è attivo */
+          height: auto;
+        }
+
+        .main-nav.active .nav-menu {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          padding: 20px 0;
+        }
+        
+        .main-nav.active .nav-menu li {
+          margin: 10px 0;
+        }
+        
+        .main-nav.active .nav-link.active::after {
+          display: none; /* Nascondi l'indicatore attivo nel menu mobile */
+        }
+
+        .mobile-menu-button {
+          display: block;
+        }
+
+        .top-bar {
+          height: auto;
+          padding: 20px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="navbar">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="container top-bar-inner">
+          <div class="logo-container">
+            <img src="images/logo.png" alt="RAISE Logo">
+          </div>
+          <div class="user-actions">
+            <form class="search-form">
+              <i class="fas fa-search search-icon"></i>
+              <input type="search" placeholder="Cerca">
+            </form>
+            <a href="#" class="login-icon"><img src="images/icona login-01.png" alt="Login"></a>            <span class="language-selector">IT</span>
+          </div>
+          <!-- Hamburger Menu Button -->
+          <button class="mobile-menu-button" aria-label="Toggle menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="main-nav">
+        <div class="container main-nav-inner">
+          <a href="#" class="page-title">Ai Etica e legale</a>
+          <ul class="nav-menu">
+            <li><a href="index.php" class="nav-link active">Home</a></li>
+            <li><a href="ai-in-breve.html" class="nav-link">Ai in breve</a></li>
+            <li><a href="ai-etica.html" class="nav-link">AI Etica</a></li>
+            <li><a href="perche-ai-etica.html" class="nav-link">Perchè Ai etica?</a></li>
+            <li><a href="risorse.html" class="nav-link">Risorse e strumenti</a></li>
+            <li><a href="chi-siamo.html" class="nav-link">Chi siamo</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <script>
+      // Evidenzia il link attivo
+      const navLinks = document.querySelectorAll('.nav-link');
+      const currentPage = window.location.href;
+
+      navLinks.forEach(link => {
+        if (link.href === currentPage) {
+          link.classList.add('active');
+        }
+      });
+
+      if (currentPage.endsWith('/') || currentPage.endsWith('index.html')) {
+        const homeLink = document.querySelector('a[href="index.html"]');
+        if (homeLink) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          homeLink.classList.add('active');
+        }
+      }
+
+      // Toggle mobile menu
+      const menuButton = document.querySelector('.mobile-menu-button');
+      const mainNav = document.querySelector('.main-nav');
+      menuButton.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+      });
+    </script>
+  </body>
+  </html>
