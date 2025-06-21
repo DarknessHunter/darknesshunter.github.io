@@ -248,14 +248,14 @@
       <div class="top-bar">
         <div class="container top-bar-inner">
           <div class="logo-container">
-            <img src="images/logo.png" alt="RAISE Logo">
+            <img src=images/logo.png alt="RAISE Logo">
           </div>
           <div class="user-actions">
             <form class="search-form">
               <i class="fas fa-search search-icon"></i>
               <input type="search" placeholder="Cerca">
             </form>
-            <a href="#" class="login-icon"><img src="images/icona login-01.png" alt="Login"></a>            <span class="language-selector">IT</span>
+            <a href="#" class="login-icon"><img src=images/iconalogin-01.png alt="Login"></a>            <span class="language-selector">IT</span>
           </div>
           <!-- Hamburger Menu Button -->
           <button class="mobile-menu-button" aria-label="Toggle menu">
