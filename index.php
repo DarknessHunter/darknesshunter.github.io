@@ -2,7 +2,7 @@
 
 <style>
     .hero {
-        background-image: url('images/IMG_Tavola disegno 1.png');
+        background-image: url(images/IMG_Tavoladisegno1.png);
         background-size: cover;
         background-position: center;
         /* navbar height is 160px (80px top-bar + 80px main-nav) */
