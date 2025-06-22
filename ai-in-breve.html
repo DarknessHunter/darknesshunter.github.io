@@ -226,7 +226,6 @@
         fill: #b0b0b0;
     }
     .ai-slider-box {
-        display: none;
         background: #cccccc;
         border-radius: 45px;
         padding: 40px 70px;
@@ -234,9 +233,20 @@
         max-width: 700px;
         box-sizing: border-box;
         text-align: left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: scale(0.6);
+        pointer-events: none;
     }
     .ai-slider-box.active {
-        display: block;
+        position: relative;
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+        z-index: 1;
     }
     .ai-slider-title {
         font-family: 'Exo', sans-serif;
@@ -475,7 +485,6 @@
             function showSlide(idx) {
                 sliderBoxes.forEach((box, i) => {
                     box.classList.toggle('active', i === idx);
-                    box.style.display = i === idx ? 'block' : 'none';
                 });
                 dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === idx);
