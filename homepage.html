@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Navbar RAISE Replica</title>
+  <title>Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -49,27 +49,43 @@
     initNavbar();
         });
 </script>
+
+
 <style>
     .hero {
-        background-image: url(images/IMG_Tavoladisegno1.png);
-        background-size: cover;
-        background-position: center;
-        /* navbar height is 160px (80px top-bar + 80px main-nav) */
-        height: 100%;
+        position: relative;
+        isolation: isolate;
+        min-height: 100vh;
         width: 100%;
         display: flex;
         padding-bottom: 90px;
         align-items: center;
         color: white;
+        box-sizing: border-box;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: url('images/IMG_Tavola disegno 1.png');
+        background-size: cover;
+        background-position: center;
+        filter: brightness(65%);
     }
 
     .hero .container {
-        padding: 0 18.4%;
+        padding: 0 17.6%;
         width: 100%;
         margin-top: 130px;
     }
 
     .hero-content {
+        
         max-width: 550px;
         padding-bottom: 60px;
     }
@@ -138,21 +154,26 @@
 
     @media (max-width: 768px) {
         .hero {
-            height: auto;
-            padding-top: 20px;
+            padding-top: 5px;
             padding-bottom: 50px;
-            background-size: cover;
-            background-position: 72% ; /* Shifting image to the left and down */
         }
+
+        .hero::before {
+            background-position: 72% 40%; /* Shifting image to the left and up */
+        }
+
         .mobile-break {
             display: block;
         }
         .hero-content h1 {
-            font-size: 35px;
+            font-size: 39px;
         }
         .hero-content .subtitle {
-            font-size: 15px;
+            font-size: 25px;
             margin-bottom: 60px;
+        }
+        .hero-content .description, .hero-content .cta-link {
+            font-size: 19px;
         }
         .hero .container {
             margin-top: 60px;
