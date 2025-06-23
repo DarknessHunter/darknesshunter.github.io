@@ -66,6 +66,7 @@
         max-width: 1215px;
         margin: 0 auto;
         padding: 0 3px;
+        padding-left: 35px;
         box-sizing: border-box;
     }
 
@@ -132,16 +133,33 @@
         margin-left: auto;
         margin-right: auto;
         position: relative;
-        margin-top: 50px;
+        margin-top: 70px;
     }
 
     .article-heading {
-        font-size: 24px;
+        font-size: 33px;
         font-weight: 900;
         line-height: 1.3;
         color: #000000;
         padding-left: 93px;
-        margin-bottom: 30px;
+        margin-bottom: 35px;
+        box-sizing: border-box;
+    }
+    .article-heading3 {
+        font-size: 33px;
+        font-weight: 900;
+        line-height: 1.3;
+        color: #000000;
+        padding-left: 110px;
+        margin-bottom: 35px;
+        box-sizing: border-box;
+    }
+    .article-headingg {
+        font-size: 33px;
+        font-weight: 900;
+        line-height: 1.3;
+        color: #000000;
+        padding-left: 93px;
         box-sizing: border-box;
     }
 
@@ -180,12 +198,62 @@
         background: none;
         padding: 35px 40px 30px 93px;
     }
+    .ai-brief-usagee {
+        margin-bottom: 18px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        background: none;
+        padding: 35px 40px 30px 93px;
+    }
+
+
+    .ai-brief-usag2 {
+        margin-bottom: 18px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        background: none;
+        padding: 0px 30px 0px 93px;
+    }
+
+    .ai-brief-usag2-test {
+        margin-bottom: 18px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        background: none;
+        padding: 0px 30px 0px 110px;
+    }
+
+    .ai-brief-usag3 {
+        margin-bottom: 18px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        background: none;
+        padding: 0px 30px 30px 93px;
+        
+    }
     .ai-brief-usage-title {
         font-size: 30px;
         font-weight: 900;
         margin-bottom: 18px;
         color: #000;
     }
+
+    .ai-brief-usage-title3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-left: 110px;
+        color: #000;
+    }
+
+    .ai-brief-usage-title3-test{
+        margin-left: 110px;
+        margin-bottom: 18px;
+    }
+
     .ai-brief-usage p {
         font-size: 16px;
         color: #444;
@@ -217,18 +285,25 @@
         right: 0;
     }
     .ai-slider-arrow svg {
-        width: 38px;
-        height: 38px;
+        width: 50px;
+        height: 50px;
         fill: #cccccc;
         transition: fill 0.2s;
     }
+    .ai-slider-arrow.left3 {
+        left: 15px;
+    }
+    .ai-slider-arrow.right3 {
+        right: -15px;
+    }
+
     .ai-slider-arrow:hover svg {
         fill: #b0b0b0;
     }
     .ai-slider-box {
         background: #cccccc;
         border-radius: 45px;
-        padding: 40px 70px;
+        padding: 40px 53px;
         width: 100%;
         max-width: 700px;
         box-sizing: border-box;
@@ -248,6 +323,15 @@
         pointer-events: auto;
         z-index: 1;
     }
+    .ai-slider-box.active2 {
+        position: relative;
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+        z-index: 1;
+        margin-left: 30px;
+    }
+    
     .ai-slider-title {
         font-family: 'Exo', sans-serif;
         font-size: 24px;
@@ -256,6 +340,7 @@
         color: #111;
         line-height: 1;
     }
+
     .ai-slider-box p {
         margin-bottom: 7px;
         font-size: 12px;
@@ -268,7 +353,7 @@
     }
     .ai-slider-list {
         margin: 10px 0 0 0;
-        padding-left: 18px;
+        padding-left: 14px;
         font-size: 13px;
         color: #222;
     }
@@ -341,9 +426,10 @@
             position: static;
             margin-top: 10px;
             max-width: 100%;
+            padding: 0 10px;
         }
 
-        .article-heading {
+        .article-heading, .article-headingg {
             text-align: left;
             padding-left: 0;
             font-size: 21px;
@@ -365,10 +451,19 @@
             margin-top: 35px;
         }
 
+        .ai-brief-usagee, .ai-brief-usag3 {
+            padding: 0 1px;
+            max-width: 100%;
+            font-size: 1rem;
+        }
+
         .ai-slider-arrow {
             display: none;
         }
-        .ai-slider-box {
+
+        .ai-slider-box.active2 {
+            margin-left: 40px !important;
+            margin-right: 40px !important;
             margin: 0 auto 3px auto;
             min-width: 0;
             width: 100%;
@@ -389,6 +484,155 @@
         .ai-slider-section {
             width: 100%;
             margin: 0;
+        }
+        .references-section {
+            margin-bottom: 25px !important;
+        }
+        .article-section {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+        .ai-brief-usag2, .ai-brief-usag3 {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            text-align: left !important;
+        }
+        .article-section, .ai-slider-box, .ai-slider-box.active2 {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            box-sizing: border-box;
+        }
+        .article-heading3{
+            font-size: 23px !important;
+        }
+        .article-heading3, .ai-brief-usage-title3, .ai-brief-usage-title3-test, .ai-brief-usag2-test {
+            margin-left: 43px !important;
+            padding-left: 0 !important;
+            text-align: left !important;
+        }
+        .ai-brief-usag2-test, .ai-brief-usage-title3-test {
+            padding-right: 0 !important;
+            margin-right: 43px !important;
+            max-width: 100% !important;
+        }
+        .ai-slider-indicators {
+            margin: 12px 0 30px 0 !important;
+        }
+        .article-heading3 {
+            margin-bottom: 10px !important;
+        }
+    }
+
+    .references-section {
+        background: none;
+        max-width: 700px;
+        margin: 40px auto 0 auto;
+        padding: 0px 70px;
+        border-radius: 45px;
+        box-sizing: border-box;
+        margin-left: 220px;
+        margin-bottom: 90px;
+    }
+    .references-section-title {
+        font-family: 'Exo', sans-serif;
+        font-size: 13px;
+        color: #111;
+        line-height: 1;
+    }
+    .references-list {
+        padding: 0;
+        list-style: disc inside;
+    }
+    .references-list li {
+        font-size: 13px;
+        color: #222;
+        font-family: 'Exo', sans-serif;
+        line-height: 1;
+    }
+    @media (max-width: 1100px) {
+        .references-section {
+            padding: 28px 18px 28px 18px;
+            border-radius: 32px;
+        }
+    }
+    @media (max-width: 768px) {
+        .references-section {
+            padding: 18px 25px;
+            border-radius: 18px;
+            max-width: 100%;
+            margin-left: 0;
+        }
+        .references-section-title {
+            font-size: 1.3rem;
+            margin-left: 10px;
+        }
+        .references-list {
+            margin-left: 10px;
+        }
+        .references-list li {
+            font-size: 1rem;
+            word-break: break-word;
+        }
+    }
+
+    .ai-brief-paragraph {
+        max-width: 900px;
+        margin: 0 auto 40px auto;
+        font-size: 1.1rem;
+        color: #222;
+        text-align: left;
+    }
+    @media (max-width: 768px) {
+        .ai-brief-paragraph {
+            font-size: 1rem;
+            padding: 0 10px;
+        }
+    }
+
+    .scroll-to-top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 54px;
+        height: 54px;
+        background: #f3f3f3;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        text-decoration: none;
+        z-index: 1000;
+        transition: background 0.2s;
+    }
+    .scroll-to-top:hover {
+        background: #e0e0e0;
+    }
+    .scroll-arrow {
+        font-size: 2.2rem;
+        color: #222;
+        line-height: 1;
+    }
+    @media (max-width: 768px) {
+        .article-section {
+            padding: 0 10px;
+        }
+        .ai-brief-usage-title {
+            font-size: 1.2rem;
+        }
+        .ai-brief-usagee {
+            font-size: 1rem;
+        }
+        .scroll-to-top {
+            width: 44px;
+            height: 44px;
+            right: 12px;
+            bottom: 12px;
+        }
+        .scroll-arrow {
+            font-size: 1.5rem;
         }
     }
 </style>
@@ -475,68 +719,299 @@
                     <span class="ai-slider-dot"></span>
                 </div>
             </div>
-            <script>
-            // Slider JS
-            const sliderBoxes = document.querySelectorAll('.ai-slider-box');
-            const dots = document.querySelectorAll('.ai-slider-dot');
-            const leftArrow = document.querySelector('.ai-slider-arrow.left');
-            const rightArrow = document.querySelector('.ai-slider-arrow.right');
-            let currentSlide = 0;
-            function showSlide(idx) {
-                sliderBoxes.forEach((box, i) => {
-                    box.classList.toggle('active', i === idx);
-                });
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === idx);
-                });
-            }
-            leftArrow.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + sliderBoxes.length) % sliderBoxes.length;
-                showSlide(currentSlide);
-            });
-            rightArrow.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % sliderBoxes.length;
-                showSlide(currentSlide);
-            });
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', () => {
-                    currentSlide = i;
-                    showSlide(currentSlide);
-                });
-            });
-            // Inizializza
-            showSlide(currentSlide);
 
-            // Touch swipe functionality for mobile
-            const sliderTrack = document.querySelector('.ai-slider-track');
-            let touchStartX = 0;
-            let touchEndX = 0;
-            const swipeThreshold = 50; // Minimum distance for a swipe
+            <div class="references-section">
+                <div class="references-section-title">Referenze</div>
+                <ul class="references-list">
+                    <li>Hastie, T., Tibshirani, R., & Friedman, J. (2009). The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Springer.</li>
+                    <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.</li>
+                </ul>
+            </div>
+            <div class="article-section">
+                <h2 class="article-headingg">Come costruisco i modelli?</h2>
+                <p class="ai-brief-usagee">I modelli interni offrono personalizzazione e controllo, mentre quelli di terze parti garantiscono velocità, costi contenuti e tecnologie avanzate già pronte all'uso.</p>
+            </div>
+            <div class="ai-slider-container">
+                <div class="ai-slider-section">
+                    <button class="ai-slider-arrow left" aria-label="Precedente">
+                        <svg viewBox="0 0 40 40"><polygon points="28,6 12,20 28,34"/></svg>
+                    </button>
+                    <div class="ai-slider-track">
+                        <div class="ai-slider-box active">
+                            <h5 class="ai-slider-title">Modelli sviluppati internamente</h5>
+                            <p class="ai-slider-text">I modelli proprietari sono progettati e addestrati su dati specifici dell'organizzazione. Questa
+                                soluzione garantisce massimo controllo su architettura, dati e metriche di performance, ed è
+                                indicata in contesti ad alta criticità, dove sicurezza, tracciabilità e adattamento fine sono
+                                fondamentali.</p>
+                            <p class="ai-slider-subtitle"><strong>Vantaggi principali:</strong></p>
+                            <ul class="ai-slider-list">
+                                <li>Personalizzazione completa su casi d'uso specifici.</li>
+                                <li>Maggiore controllo su privacy, sicurezza e governance dei dati.</li>
+                                <li>Possibilità di ottimizzazione continua e auditabilità del modello.</li>
+                            </ul>
+                        </div>
+                        <div class="ai-slider-box">
+                            <h5 class="ai-slider-title">AI Generativa</h5>
+                            <p class="ai-slider-text">L'AI generativa crea nuovi contenuti come testi, immagini, suoni o video a partire da dati di input.<br>
+                            Utilizza reti neurali avanzate come GAN e modelli di linguaggio di grandi dimensioni.</p>
+                            <p class="ai-slider-subtitle"><strong>Esempi applicativi:</strong></p>
+                            <ul class="ai-slider-list">
+                                <li>Generazione automatica di testi e articoli.</li>
+                                <li>Creazione di immagini o musica originali.</li>
+                                <li>Produzione di video sintetici o deepfake.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="ai-slider-arrow right" aria-label="Successivo">
+                        <svg viewBox="0 0 40 40"><polygon points="12,6 28,20 12,34"/></svg>
+                    </button>
+                </div>
+                
+                <div class="ai-slider-indicators">
+                    <span class="ai-slider-dot active"></span>
+                    <span class="ai-slider-dot"></span>
+                </div>
+            </div>
+            <div class="article-section">
+                <h2 class="article-heading">Cosa serve per?</h2>
+                <p class="ai-brief-usag2">Creare un sistema AI efficace richiede più che algoritmi: è cruciale una progettazione completa che assicuri affidabilità, trasparenza e utilità per tutti gli utenti.</p>
+                <p class="ai-brief-usag3">Costruire un sistema di intelligenza artificiale efficace richiede molto più della semplice applicazione di algoritmi. È fondamentale curare tutte le fasi preliminari e trasversali allo sviluppo, per garantire affidabilità, trasparenza e utilità dei modelli.</p>
+            </div>
 
-            sliderTrack.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            sliderTrack.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, { passive: true });
-
-            function handleSwipe() {
-                const swipeDistance = touchEndX - touchStartX;
-                if (Math.abs(swipeDistance) < swipeThreshold) {
-                    return; // Not a swipe
-                }
-
-                if (swipeDistance > 0) { // Swipe right
-                    currentSlide = (currentSlide - 1 + sliderBoxes.length) % sliderBoxes.length;
-                } else { // Swipe left
-                    currentSlide = (currentSlide + 1) % sliderBoxes.length;
-                }
-                showSlide(currentSlide);
-            }
-            </script>
         </div>
+        <div class="ai-slider-container">
+            <div class="ai-slider-section">
+                <button class="ai-slider-arrow left3" aria-label="Precedente">
+                    <svg viewBox="0 0 40 40"><polygon points="28,6 12,20 28,34"/></svg>
+                </button>
+                <div class="ai-slider-track">
+                    <div class="ai-slider-box active2">
+                        <h5 class="ai-slider-title">Data Collection</h5>
+                        <p class="ai-slider-text">La qualità dell'AI dipende dai dati. Una raccolta ben pianificata assicura rappresentatività,
+                            completezza e aggiornamento delle informazioni.</p>
+                        <p class="ai-slider-subtitle"><strong>A cosa prestare attenzione:
+                        </strong></p>
+                        <ul class="ai-slider-list">
+                            <li> Definizione delle fonti e delle modalità di acquisizione.</li>
+                            <li>Conformità normativa (privacy, consenso, protezione dei dati)</li>
+                            <li>Diversità e inclusività dei dati raccolti.</li>
+                        </ul>
+                    </div>
+                    <div class="ai-slider-box">
+                        <h5 class="ai-slider-title">AI Generativa</h5>
+                        <p class="ai-slider-text">L'AI generativa crea nuovi contenuti come testi, immagini, suoni o video a partire da dati di input.<br>
+                        Utilizza reti neurali avanzate come GAN e modelli di linguaggio di grandi dimensioni.</p>
+                        <p class="ai-slider-subtitle"><strong>Esempi applicativi:</strong></p>
+                        <ul class="ai-slider-list">
+                            <li>Generazione automatica di testi e articoli.</li>
+                            <li>Creazione di immagini o musica originali.</li>
+                            <li>Produzione di video sintetici o deepfake.</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="ai-slider-arrow right3" aria-label="Successivo">
+                    <svg viewBox="0 0 40 40"><polygon points="12,6 28,20 12,34"/></svg>
+                </button>
+            </div>
+            
+            <div class="ai-slider-indicators">
+                <span class="ai-slider-dot active"></span>
+                <span class="ai-slider-dot"></span>
+                <span class="ai-slider-dot"></span>
+                <span class="ai-slider-dot"></span>
+                <span class="ai-slider-dot"></span>
+            </div>
+        </div>
+            <div class="article-section">
+                <h2 class="article-heading3">Opportunità, rischi e impatto</h2>
+                <p class="ai-brief-usag2-test">La sfida è bilanciare progresso tecnologico e protezione dei diritti. Un approccio etico, trasparente e rispettoso della privacy per massimizzare i benefici e ridurre i rischi.</p>
+                <p class="ai-brief-usag2-test">L'Intelligenza Artificiale rappresenta una tecnologia rivoluzionaria che sta trasformando profondamente la società e l'economia. Di seguito una breve panoramica dei principali benefici, rischi e della necessità di un equilibrio etico:</p>
+                <h3 class="ai-brief-usage-title3">Opportunità</h3>
+                <p class="ai-brief-usage-title3-test">L'AI offre straordinarie possibilità, tra cui l'automazione di processi complessi, il miglioramento della produttività e l'accesso a servizi più personalizzati. Favorisce l'innovazione in settori chiave come la sanità, la cultura e l'industria, consentendo un utilizzo più efficiente delle risorse e la creazione di soluzioni più avanzate.</p>
+                <h3 class="ai-brief-usage-title3">Rischi</h3>
+                <p class="ai-brief-usage-title3-test">Tuttavia, emergono preoccupazioni significative, tra cui l'opacità degli algoritmi, la possibilità di bias discriminatori e la perdita di autonomia umana. Questi rischi sollevano interrogativi su trasparenza, equità e sicurezza, che sono essenziali per garantire un uso responsabile dell'IA.</p>
+                <h3 class="ai-brief-usage-title3">Impatto</h3>
+                <p class="ai-brief-usage-title3-test">La sfida principale è trovare un equilibrio tra progresso tecnologico e protezione dei diritti fondamentali. Un approccio etico e responsabile, che includa trasparenza, inclusività e rispetto della privacy, è essenziale per massimizzare i benefici dell'IA e minimizzarne i rischi, contribuendo così a un benessere collettivo sostenibile.</p>
+            </div>
+            <a href="#top" class="scroll-to-top" aria-label="Torna all'inizio della pagina">
+                <span class="scroll-arrow">&#8679;</span>
+            </a>
+            <script>
+            // Script unico per entrambi gli slider
+            (function() {
+                // --- Primo slider ---
+                const sliderSections = document.querySelectorAll('.ai-slider-section');
+                if (sliderSections.length < 1) return;
+                // Primo slider
+                const sliderSection1 = sliderSections[0];
+                const sliderBoxes1 = sliderSection1.querySelectorAll('.ai-slider-box');
+                const leftArrow1 = sliderSection1.querySelector('.ai-slider-arrow.left');
+                const rightArrow1 = sliderSection1.querySelector('.ai-slider-arrow.right');
+                const dots1 = sliderSection1.parentElement.querySelectorAll('.ai-slider-dot');
+                let currentSlide1 = 0;
+                function showSlide1(idx) {
+                    sliderBoxes1.forEach((box, i) => {
+                        box.classList.toggle('active', i === idx);
+                    });
+                    dots1.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === idx);
+                    });
+                }
+                leftArrow1.addEventListener('click', () => {
+                    currentSlide1 = (currentSlide1 - 1 + sliderBoxes1.length) % sliderBoxes1.length;
+                    showSlide1(currentSlide1);
+                });
+                rightArrow1.addEventListener('click', () => {
+                    currentSlide1 = (currentSlide1 + 1) % sliderBoxes1.length;
+                    showSlide1(currentSlide1);
+                });
+                dots1.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        currentSlide1 = i;
+                        showSlide1(currentSlide1);
+                    });
+                });
+                // Touch swipe per mobile (primo slider)
+                const sliderTrack1 = sliderSection1.querySelector('.ai-slider-track');
+                let touchStartX1 = 0;
+                let touchEndX1 = 0;
+                const swipeThreshold1 = 50;
+                sliderTrack1.addEventListener('touchstart', (e) => {
+                    touchStartX1 = e.changedTouches[0].screenX;
+                }, { passive: true });
+                sliderTrack1.addEventListener('touchend', (e) => {
+                    touchEndX1 = e.changedTouches[0].screenX;
+                    const swipeDistance = touchEndX1 - touchStartX1;
+                    if (Math.abs(swipeDistance) < swipeThreshold1) return;
+                    if (swipeDistance > 0) {
+                        currentSlide1 = (currentSlide1 - 1 + sliderBoxes1.length) % sliderBoxes1.length;
+                    } else {
+                        currentSlide1 = (currentSlide1 + 1) % sliderBoxes1.length;
+                    }
+                    showSlide1(currentSlide1);
+                }, { passive: true });
+                showSlide1(currentSlide1);
+
+                // --- Secondo slider ---
+                if (sliderSections.length < 2) return;
+                const sliderSection2 = sliderSections[1];
+                const sliderBoxes2 = sliderSection2.querySelectorAll('.ai-slider-box');
+                const leftArrow2 = sliderSection2.querySelector('.ai-slider-arrow.left');
+                const rightArrow2 = sliderSection2.querySelector('.ai-slider-arrow.right');
+                const dots2 = sliderSection2.parentElement.querySelectorAll('.ai-slider-dot');
+                let currentSlide2 = 0;
+                function showSlide2(idx) {
+                    sliderBoxes2.forEach((box, i) => {
+                        box.classList.toggle('active', i === idx);
+                    });
+                    if (dots2.length) {
+                        dots2.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === idx);
+                        });
+                    }
+                }
+                leftArrow2.addEventListener('click', () => {
+                    currentSlide2 = (currentSlide2 - 1 + sliderBoxes2.length) % sliderBoxes2.length;
+                    showSlide2(currentSlide2);
+                });
+                rightArrow2.addEventListener('click', () => {
+                    currentSlide2 = (currentSlide2 + 1) % sliderBoxes2.length;
+                    showSlide2(currentSlide2);
+                });
+                if (dots2.length) {
+                    dots2.forEach((dot, i) => {
+                        dot.addEventListener('click', () => {
+                            currentSlide2 = i;
+                            showSlide2(currentSlide2);
+                        });
+                    });
+                }
+                // Touch swipe per mobile (secondo slider)
+                const sliderTrack2 = sliderSection2.querySelector('.ai-slider-track');
+                let touchStartX2 = 0;
+                let touchEndX2 = 0;
+                const swipeThreshold2 = 50;
+                sliderTrack2.addEventListener('touchstart', (e) => {
+                    touchStartX2 = e.changedTouches[0].screenX;
+                }, { passive: true });
+                sliderTrack2.addEventListener('touchend', (e) => {
+                    touchEndX2 = e.changedTouches[0].screenX;
+                    const swipeDistance = touchEndX2 - touchStartX2;
+                    if (Math.abs(swipeDistance) < swipeThreshold2) return;
+                    if (swipeDistance > 0) {
+                        currentSlide2 = (currentSlide2 - 1 + sliderBoxes2.length) % sliderBoxes2.length;
+                    } else {
+                        currentSlide2 = (currentSlide2 + 1) % sliderBoxes2.length;
+                    }
+                    showSlide2(currentSlide2);
+                }, { passive: true });
+                showSlide2(currentSlide2);
+
+                // --- Terzo slider ---
+                if (sliderSections.length < 3) return;
+                const sliderSection3 = sliderSections[2];
+                const sliderBoxes3 = sliderSection3.querySelectorAll('.ai-slider-box');
+                const leftArrow3 = sliderSection3.querySelector('.ai-slider-arrow.left3');
+                const rightArrow3 = sliderSection3.querySelector('.ai-slider-arrow.right3');
+                const dots3 = sliderSection3.parentElement.querySelectorAll('.ai-slider-dot');
+                let currentSlide3 = 0;
+                function showSlide3(idx) {
+                    sliderBoxes3.forEach((box, i) => {
+                        box.classList.toggle('active2', i === idx);
+                        box.classList.toggle('active', i === idx); // fallback per compatibilità
+                    });
+                    if (dots3.length) {
+                        dots3.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === idx);
+                        });
+                    }
+                }
+                leftArrow3.addEventListener('click', () => {
+                    currentSlide3 = (currentSlide3 - 1 + sliderBoxes3.length) % sliderBoxes3.length;
+                    showSlide3(currentSlide3);
+                });
+                rightArrow3.addEventListener('click', () => {
+                    currentSlide3 = (currentSlide3 + 1) % sliderBoxes3.length;
+                    showSlide3(currentSlide3);
+                });
+                if (dots3.length) {
+                    dots3.forEach((dot, i) => {
+                        dot.addEventListener('click', () => {
+                            currentSlide3 = i;
+                            showSlide3(currentSlide3);
+                        });
+                    });
+                }
+                // Touch swipe per mobile (terzo slider)
+                const sliderTrack3 = sliderSection3.querySelector('.ai-slider-track');
+                let touchStartX3 = 0;
+                let touchEndX3 = 0;
+                const swipeThreshold3 = 50;
+                sliderTrack3.addEventListener('touchstart', (e) => {
+                    touchStartX3 = e.changedTouches[0].screenX;
+                }, { passive: true });
+                sliderTrack3.addEventListener('touchend', (e) => {
+                    touchEndX3 = e.changedTouches[0].screenX;
+                    const swipeDistance = touchEndX3 - touchStartX3;
+                    if (Math.abs(swipeDistance) < swipeThreshold3) return;
+                    if (swipeDistance > 0) {
+                        currentSlide3 = (currentSlide3 - 1 + sliderBoxes3.length) % sliderBoxes3.length;
+                    } else {
+                        currentSlide3 = (currentSlide3 + 1) % sliderBoxes3.length;
+                    }
+                    showSlide3(currentSlide3);
+                }, { passive: true });
+                showSlide3(currentSlide3);
+            })();
+            </script>
+            <script>
+            document.querySelectorAll('.scroll-to-top').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+            </script>
     </section>
 </main>
 
