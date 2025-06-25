@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Perchè AI etica?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+        font-family: 'Exo', sans-serif;
+    }
+    /* Ai in breve Section (riutilizzato per etica) */
+    .ai-in-breve {
+        background-color: #EFF1F0;
+        padding: 40px 0;
+        font-family: 'Exo', sans-serif;
+    }
+    .ai-in-breve .container {
+        max-width: 1215px;
+        margin: 0 auto;
+        padding: 0 3px;
+        padding-left: 35px;
+        box-sizing: border-box;
+    }
+    .ai-in-breve .section-title-brief {
+        text-align: center;
+        font-size: 41px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #000000;
+    }
+    .article-section {
+        max-width: 780px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        margin-top: 70px;
+    }
+    .article-heading {
+        font-size: 33px;
+        font-weight: 900;
+        line-height: 1.3;
+        color: #000000;
+        padding-left: 93px;
+        margin-bottom: 35px;
+        box-sizing: border-box;
+    }
+    .article-section img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 21px;
+    }
+    .ai-brief-content {
+        padding: 35px 40px 30px 93px;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+    .ai-brief-title {
+        font-family: 'Exo', sans-serif;
+        font-size: 23px;
+        font-weight: 500;
+        margin-bottom: 35px;
+        line-height: 1.2;
+    }
+    .ai-brief-content p {
+        font-size: 16px;
+        color: #444;
+        margin-bottom: 18px;
+        line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+        .ai-in-breve {
+            padding: 34px 0px;
+            background-color: #ffffff;
+            margin-right: 33px;
+        }
+
+        .ai-in-breve .section-title-brief {
+            font-size: 35px;
+            margin-right: 0;
+            margin-bottom: 12px;
+        }
+        .article-section {
+            position: static;
+            margin-top: 10px;
+            max-width: 100%;
+            padding: 0 10px;
+        }
+        .article-heading {
+            text-align: left;
+            padding-left: 0;
+            font-size: 21px;
+            margin-bottom: 21px;
+        }
+        .ai-brief-content {
+            padding: 0 1px;
+            max-width: 100%;
+        }
+        .ai-brief-title {
+            font-size: 14px;    
+            text-align: left;
+        }
+        .ai-brief-content p {
+            font-size: 13px;
+            word-break: break-word;
+            hyphens: auto;
+            line-height: 1.1;
+        }
+        .article-section p {
+            word-break: break-word;
+            hyphens: auto;
+            padding-right: 10px;
+        }
+    }
+    .principi-etici-section {
+      padding: 35px 40px 30px 105px;
+      margin: 60px auto 0 auto;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+    }
+    .principio-etico {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+    }
+    .principio-icon {
+      min-width: 72px;
+      min-height: 25px;
+      padding: 8px 22px;
+      border: 2px solid #222;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #EFF1F0;
+      margin-top: 3.4px;
+    }
+    .principio-testo h3 {
+      font-size: 23px;
+      font-weight: 510;
+      margin: 0 0 10px 0;
+      color: #111;
+      line-height: 1.1;
+      margin-bottom: 30px;
+    }
+    .principio-testo p {
+      font-size: 16px;
+      color: #222;
+      margin: 0;
+      line-height: 1.3;
+    }
+    .desktop-break { display: inline; }
+    .mobile-break { display: none; }
+    @media (max-width: 768px) {
+      .desktop-break { display: none; }
+      .mobile-break { display: inline; }
+      .principi-etici-section {
+        gap: 18px;
+        padding: 0 10px;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .principio-etico {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .principio-icon {
+        margin-top: 0;
+        min-width: 48px;
+        min-height: 32px;
+        font-size: 18px;
+        padding: 6px 16px;
+      }
+      .principio-testo h3 {
+        font-size: 16px;
+        text-align: left;
+        margin-bottom: 21px;
+        line-height: 1.1;
+        white-space: normal;
+      }
+      .principio-testo p {
+        font-size: 14px;
+        text-align: left;
+        line-height: 1.3;
+        white-space: normal;
+        margin-bottom: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    // Funzione per inizializzare il JavaScript della navbar
+    function initNavbar() {
+        // Evidenzia il link attivo
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.href;
+
+        navLinks.forEach(link => {
+            if (link.href === currentPage) {
+                link.classList.add('active');
+            }
+        });
+
+        if (currentPage.endsWith('/') || currentPage.endsWith('index.html')) {
+            const homeLink = document.querySelector('a[href="index.php"]');
+            if (homeLink) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                homeLink.classList.add('active');
+            }
+        }
+
+        // Toggle mobile menu
+        const menuButton = document.querySelector('.mobile-menu-button');
+        const mainNav = document.querySelector('.main-nav');
+        
+        if (menuButton && mainNav) {
+            menuButton.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                console.log('Menu toggled:', mainNav.classList.contains('active'));
+            });
+        }
+    }
+    
+    fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+    
+    // Evidenzia il link attivo
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentPage = window.location.href;
+    navLinks.forEach(link => link.classList.remove('active'));
+    let activeLinkFound = false;
+    navLinks.forEach(link => {
+      const linkHref = link.getAttribute('href');
+      if (currentPage.endsWith(linkHref)) {
+        link.classList.add('active');
+        activeLinkFound = true;
+      }
+    });
+    if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+      const homeLink = document.querySelector('a[href=\"homepage.html\"]');
+      if (homeLink) homeLink.classList.add('active');
+    }
+
+    // --- MOBILE SIDEBAR LOGIC ---
+    const sidebar = document.querySelector('.mobile-sidebar');
+    const overlay = document.querySelector('.mobile-sidebar-overlay');
+    const menuButton = document.querySelector('.mobile-menu-button');
+    function openSidebar() {
+      sidebar.style.display = 'flex';
+      overlay.style.display = 'block';
+      menuButton.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.style.display = 'none';
+      overlay.style.display = 'none';
+      menuButton.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    menuButton.addEventListener('click', function() {
+      if (sidebar.style.display === 'flex') {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+    overlay.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSidebar();
+    });
+    });
+</script>
+  <main>
+    <section class="ai-in-breve">
+      <div class="container">
+        <h2 class="section-title-brief">Perchè AI etica?</h2>
+        <div class="article-section">
+          <h3 class="article-heading">Perché un approccio etico nello<span class="desktop-break"><span class="desktop-break"><br></span></span> sviluppo dell'AI è essenziale?</h3>
+          <img src="images/IMG-07.png" alt="Diritti umani e AI">
+          <div class="ai-brief-content">
+            <h4 class="ai-brief-title">Solo un approccio etico può trasformare l'AI in uno strumento al servizio dell'umanità, e non del suo<span class="desktop-break"><br></span> controllo.</h4>
+            <p>L'Intelligenza Artificiale (AI) rappresenta una rivoluzione tecnologica<span class="desktop-break"><br></span>senza precedenti, con il potenziale di trasformare il modo in cui pensiamo, viviamo e lavoriamo.<span class="mobile-break"><br><br></span><span class="desktop-break"><br></span>
+La sua velocità di innovazione comporta rischi significativi: dalla mancanza di <b>trasparenza e spiegabilità</b> nelle decisioni algoritmiche alle discriminazioni<span class="desktop-break"><br></span> sistemiche, fino alla possibilità di scelte autonome non allineate ai valori<span class="desktop-break"><br></span> umani.<span class="mobile-break"><br><br></span><span class="desktop-break"><br></span>
+In questo contesto, l'etica dell'AI non è un lusso, ma una necessità. Un<span class="desktop-break"><br></span> approccio etico deve fondarsi su <b>principi condivisi</b> che garantiscano lo sviluppo<span class="desktop-break"><br></span> di sistemi responsabili, in grado di bilanciare progresso e tutela dei diritti.<span class="mobile-break"><br><br></span> Tra<span class="desktop-break"><br></span> questi, emergono con urgenza il <b>rispetto per l'autonomia umana</b> – <span class="desktop-break"><br></span>preservando il controllo delle persone su scelte e dati – e l'impegno a rendere<span class="desktop-break"><br></span> l'AI comprensibile e auditabile, per costruire fiducia e inclusione.<span class="mobile-break"><br><br></span><span class="desktop-break"><br></span><span class="desktop-break"><br></span>
+Solo così l'AI potrà davvero servire il benessere collettivo, senza<span class="desktop-break"><br></span> compromettere dignità, libertà o equità.</p>
+          </div>
+        </div>
+        <div class="principi-etici-section">
+          <div class="principio-etico">
+            <div class="principio-icon">AI</div>
+            <div class="principio-testo">
+              <h3>Trasparenza e Spiegabilità</h3>
+              <p>La necessità di trasparenza e spiegabilità<span class="desktop-break"><span class="desktop-break"><br></span></span>per costruire fiducia.</p>
+            </div>
+          </div>
+          <div class="principio-etico">
+            <div class="principio-icon">AI</div>
+            <div class="principio-testo">
+              <h3>Rispetto per l'autonomia umana</h3>
+              <p>Il rispetto per l'autonomia umana e la <span class="desktop-break"><span class="desktop-break"><br></span></span>prevenzione di danni.</p>
+            </div>
+          </div>
+          <div class="principio-etico">
+            <div class="principio-icon">AI</div>
+            <div class="principio-testo">
+              <h3>Principi condivisi</h3>
+              <p>L'importanza di principi condivisi,<span class="desktop-break"><span class="desktop-break"><br></span></span> come l'equità, l'inclusione e la sostenibilità.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
