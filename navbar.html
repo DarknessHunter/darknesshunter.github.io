@@ -138,8 +138,8 @@
       display: flex;
       list-style: none;
       margin: 0 auto;
-      padding-left: 200px; /* Spazio per il titolo */
-      padding-right: 240px; /* Spazio per allineare "Chi siamo" con la search */
+      padding-left: 190px; /* Spazio per il titolo */
+      padding-right: 170px; /* Spazio per allineare "Chi siamo" con la search */
     }
 
     .nav-menu li {
@@ -235,11 +235,184 @@
       }
 
       .top-bar {
-        height: auto;
-        padding: 20px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 3000;
+        width: 100vw;
+      }
+      body {
+        padding-top: 70px; /* o l'altezza reale della top-bar */
       }
     }
-}
+
+    .mobile-sidebar-overlay {
+      position: fixed;
+      top: 72px;
+      left: 0; right: 0; bottom: 0;
+      z-index: 2000;
+      display: none;
+      transition: opacity 0.3s;
+      
+    }
+    .mobile-sidebar {
+      position: fixed;
+      right: 0;
+      top: 72px; /* 70px top-bar + 2px riga grigia */
+      width: 340px;
+      max-width: 90vw;
+      height: calc(120vh - 72px);
+      background: #fff;
+      z-index: 2100;
+      box-shadow: -2px 0 16px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      animation: slideInSidebar 0.3s;
+    }
+    @keyframes slideInSidebar {
+      from { right: -350px; }
+      to { right: 0; }
+    }
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 180px 200px 180px;
+    }
+    .sidebar-logo {
+      height: 36px;
+      width: auto;
+    }
+    .sidebar-close {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #444;
+      cursor: pointer;
+    }
+    .sidebar-search-form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 24px 18px 0 18px;
+      gap: 1px;
+    }
+    .sidebar-search-box {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 30px;
+      border: 1px solid #e0e0e0;
+      padding: 0 18px 0 12px;
+      flex: 1 1 auto;
+      min-width: 0;
+      height: 48px;
+    }
+    .sidebar-search-box input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 1.2rem;
+      width: 100%;
+      padding: 12px 0;
+      font-family: var(--font-base);
+    }
+    .sidebar-search-icon {
+      color: #aaa;
+      font-size: 1.2rem;
+      margin-right: 8px;
+    }
+    .sidebar-user-box {
+      background: #fff;
+      border-radius: 50%;
+      border: 1px  #e0e0e0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+    .sidebar-user-box i {
+      font-size: 1.7rem;
+      color: #444;
+    }
+    .sidebar-menu {
+      list-style: none;
+      padding: 0 0 0 0;
+      margin: 8px 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sidebar-item {
+      padding: 15px 24px;
+      font-size: 1.1rem;
+      color: #222;
+      border: none;
+      background: none;
+      text-align: left;
+      cursor: pointer;
+      margin: 0 15px;
+      border-bottom: 1.5px solid #444;
+    }
+    .sidebar-item:last-child {
+      border-bottom: none;
+    }
+    .sidebar-item a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .sidebar-item a b {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    .sidebar-item.disabled {
+      color: #bdbdbd;
+      cursor: not-allowed;
+      pointer-events: none;
+      background: #fafafa;
+    }
+    .sidebar-divider {
+      height: 1.5px;
+      background: #444;
+      margin: 0 18px;
+      border: none;
+      padding: 0;
+    }
+    .sidebar-search-form + .sidebar-divider {
+      margin-top: 24px; /* o il valore che preferisci */
+    }
+    @media (min-width: 1025px) {
+      .mobile-sidebar, .mobile-sidebar-overlay { display: none !important; }
+    }
+    .mobile-menu-button.active .hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-button.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-button.active .hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    .sidebar-user-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+    .sidebar-spacer {
+      height: 37px;
+      background: transparent;
+      border: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }}
   </style>
 </head>
 <body>
@@ -266,21 +439,49 @@
       </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-      <div class="container main-nav-inner">
-        <a href="" class="page-title">Ai Etica e legale</a>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="ai-in-breve.html" class="nav-link">Ai in breve</a></li>
-          <li><a href="ai-etica.html" class="nav-link">AI Etica</a></li>
-          <li><a href="perche-ai-etica.html" class="nav-link">Perchè Ai etica?</a></li>
-          <li><a href="risorse.html" class="nav-link">Risorse e strumenti</a></li>
-          <li><a href="chi-siamo.html" class="nav-link">Chi siamo</a></li>
-        </ul>
-      </div>
-    </nav>
   </header>
+
+  <!-- Sidebar Mobile Overlay & Menu (sidebar starts below top-bar) -->
+  <div class="mobile-sidebar-overlay" style="display:none;"></div>
+  <nav class="mobile-sidebar" style="display:none; top:70px;">
+    <form class="sidebar-search-form">
+      <div class="sidebar-search-box">
+        <i class="fas fa-search sidebar-search-icon"></i>
+        <input type="search" placeholder="Cerca">
+      </div>
+      <div class="sidebar-user-box">
+        <img src="images/icona login-01.png" alt="Login" class="sidebar-user-img">
+      </div>
+    </form>
+    <div class="sidebar-divider"></div>
+    <ul class="sidebar-menu">
+      <li class="sidebar-item"><a href="index.html">Al Etica e Legale</a></li>
+      <li class="sidebar-item"><a href="ai-in-breve.html">Al in breve</a></li>
+      <li class="sidebar-item "><a href="ai-etica.html"></a>Al Etica</li>
+      <li class="sidebar-item"><a href="perchè-ai-etica.html">Perchè Al Etica?</a></li>
+      <li class="sidebar-item">Risorse e strumenti</li>
+      <li class="sidebar-item ">Chi siamo</li>
+      <li class="sidebar-spacer"></li>
+      <li class="sidebar-item"><a href="#">Logout</a></li>
+      <li class="sidebar-item"><a href="#">Lingua</a></li>
+      <li class="sidebar-spacer"></li>
+    </ul>
+  </nav>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container main-nav-inner">
+      <a href="" class="page-title">Ai Etica e legale</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="ai-in-breve.html" class="nav-link">Ai in breve</a></li>
+        <li><a href="ai-etica.html" class="nav-link">AI Etica</a></li>
+        <li><a href="perchè-ai-etica.html" class="nav-link">Perchè Ai etica?</a></li>
+        <li><a href="risorse.html" class="nav-link">Risorse e strumenti</a></li>
+        <li><a href="chi-siamo.html" class="nav-link">Chi siamo</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <script>
     // Evidenzia il link attivo
@@ -307,11 +508,33 @@
       }
     }
 
-    // Toggle mobile menu
+    // Mobile sidebar logic
+    const sidebar = document.querySelector('.mobile-sidebar');
+    const overlay = document.querySelector('.mobile-sidebar-overlay');
     const menuButton = document.querySelector('.mobile-menu-button');
-    const mainNav = document.querySelector('.main-nav');
-    menuButton.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
+    function openSidebar() {
+      sidebar.style.display = 'flex';
+      overlay.style.display = 'block';
+      menuButton.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.style.display = 'none';
+      overlay.style.display = 'none';
+      menuButton.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    menuButton.addEventListener('click', function() {
+      if (sidebar.style.display === 'flex') {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+    overlay.addEventListener('click', closeSidebar);
+    // Chiudi sidebar con ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSidebar();
     });
   </script>
 </body>
