@@ -7,8 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <div id="navbar-placeholder"></div>
-
-<script>
+  <script>
     // Funzione per inizializzare il JavaScript della navbar
     function initNavbar() {
         // Evidenzia il link attivo
@@ -46,8 +45,51 @@
     .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
     
-    initNavbar();
-        });
+    // Evidenzia il link attivo
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentPage = window.location.href;
+    navLinks.forEach(link => link.classList.remove('active'));
+    let activeLinkFound = false;
+    navLinks.forEach(link => {
+      const linkHref = link.getAttribute('href');
+      if (currentPage.endsWith(linkHref)) {
+        link.classList.add('active');
+        activeLinkFound = true;
+      }
+    });
+    if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+      const homeLink = document.querySelector('a[href=\"homepage.html\"]');
+      if (homeLink) homeLink.classList.add('active');
+    }
+
+    // --- MOBILE SIDEBAR LOGIC ---
+    const sidebar = document.querySelector('.mobile-sidebar');
+    const overlay = document.querySelector('.mobile-sidebar-overlay');
+    const menuButton = document.querySelector('.mobile-menu-button');
+    function openSidebar() {
+      sidebar.style.display = 'flex';
+      overlay.style.display = 'block';
+      menuButton.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.style.display = 'none';
+      overlay.style.display = 'none';
+      menuButton.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    menuButton.addEventListener('click', function() {
+      if (sidebar.style.display === 'flex') {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+    overlay.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSidebar();
+    });
+    });
 </script>
 
 
@@ -73,7 +115,7 @@
     .ai-in-breve .section-title-brief {
         text-align: center;
         font-size: 41px;
-        font-weight: 800;
+        font-weight: 700;
         margin-bottom: 30px;
         color: #000000;
     }
