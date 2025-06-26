@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Chi siamo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Exo', sans-serif;
+      background: #EFF1F0;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1215px;
+      margin: 0 auto;
+      padding: 0 2px;
+    }
+    main.chi-siamo {
+      background-color: #EFF1F0;
+      min-height: 100vh;
+      padding: 40px 0 60px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .chi-siamo-title {
+      font-family: 'Exo', sans-serif;
+      font-weight: 700;
+      font-size: 41px;
+      text-align: center;
+      margin-bottom: 70px;
+      margin-top: 0;
+    }
+    .chi-siamo-main {
+      max-width: 800px;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .chi-siamo-main p {
+      font-size: 1.3rem;
+      margin: 0 0 18px 0;
+    }
+    .chi-siamo-main .bold {
+      font-family: 'Exo', sans-serif;
+      font-weight: 700;
+      font-size: 33px;
+      margin-bottom: 70px;
+      display: block;
+    }
+    .chi-siamo-main .sub-bold {
+      font-family: 'Exo', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      margin-bottom: 140px;
+      display: block;
+    }
+    .contributors-section {
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 30px;
+    }
+    .contributors-title {
+      font-family: 'Exo', sans-serif;
+      font-weight: 500;
+      font-size: 33px;
+      margin-bottom: 70px;
+      text-align: left;
+    }
+    .contributors-cards {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contributor-card {
+      background: #FFFFFF;
+      border-radius: 50px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      padding: 32px 36px 28px 36px;
+      min-width: 260px;
+      max-width: 340px;
+      flex: 1 1 300px;
+      margin-bottom: 24px;
+    }
+    .contributor-card h3 {
+      font-family: 'Exo', sans-serif;
+      font-weight: 500;
+      font-size: 40px;
+      margin-bottom: 18px;
+      margin-top: 0;
+    }
+    .contributor-list {
+      font-family: 'Exo', sans-serif;
+      font-weight: 500;
+      font-size: 27px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    @media (max-width: 900px) {
+      .contributors-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+      .contributors-section {
+        max-width: 98vw;
+      }
+    }
+    .chi-siamo-centered-content {
+      margin-left: 220px;
+      margin-right: 200px;
+      /* These values match the navbar's .nav-menu padding, adjusted by 10px */
+      max-width: calc(100vw - 200px - 160px);
+      /* Prevents overflow on small screens */
+    }
+    @media (max-width: 1024px) {
+      .chi-siamo-centered-content {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100vw;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+    /* By default, show desktop version, hide mobile */
+    .desktop-cards { display: flex; }
+    .mobile-cards { display: none; }
+
+    /* On mobile, show mobile version, hide desktop */
+    @media (max-width: 600px) {
+      .desktop-cards { display: none !important; }
+      .mobile-cards { display: flex !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <main class="chi-siamo container">
+    <div class="chi-siamo-centered-content">
+      <h1 class="chi-siamo-title">Chi siamo</h1>
+      <div class="chi-siamo-main">
+        <span class="bold">Nell'ambito del programma di accelerazione RAISE (Spoke 5), abbiamo sviluppato strumenti per aiutare le aziende a navigare gli aspetti legali ed etici dell'Intelligenza Artificiale (IA), come GDPR e AI Act europeo.</span>
+        <span class="sub-bold">Attraverso analisi e feedback, abbiamo creato questo portale per supportare l'adozione responsabile e conforme dell'IA.</span>
+      </div>
+      <section class="contributors-section">
+        <div class="contributors-title">Contributori</div>
+        <!-- Desktop/Tablet: Two cards -->
+        <div class="contributors-cards desktop-cards">
+          <div class="contributor-card">
+            <h3>UniGe</h3>
+            <ul class="contributor-list">
+              <li>Annalisa Barla</li>
+              <li>Andrea Ottolia</li>
+              <li>Cristina Sappa</li>
+              <li>Assegnista 2</li>
+              <li>Ilaria Stanzani</li>
+              <li>Elena Milano</li>
+              <li>Elisabetta Delponte</li>
+              <li>Virginia Colotto</li>
+              <br>
+              <li>Alexia Formica</li>
+              <li>Federica Casu</li>
+              <li>Ginevra Mignano</li>
+              <li>Maria Valentina Marino</li>
+              <li>Syria Vannini</li>
+              <li>Veronica Bracco</li>
+            </ul>
+          </div>
+          <div class="contributor-card">
+            <h3>IIT</h3>
+            <ul class="contributor-list">
+              <li>Andrea Pagnin</li>
+              <li>Chiara Crippa</li>
+              <li>Benedetta Simoni</li>
+              <li>Stefano Gianazzi</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mobile: Three cards -->
+        <div class="contributors-cards mobile-cards">
+          <div class="contributor-card">
+            <h3>UniGe</h3>
+            <ul class="contributor-list">
+              <li>Annalisa Barla</li>
+              <li>Andrea Ottolia</li>
+              <li>Cristina Sappa</li>
+              <li>Assegnista 2</li>
+              <li>Ilaria Stanzani</li>
+              <li>Elena Milano</li>
+              <li>Elisabetta Delponte</li>
+              <li>Virginia Colotto</li>
+            </ul>
+          </div>
+          <div class="contributor-card">
+            <h3>Designer UniGe</h3>
+            <ul class="contributor-list">
+              <li>Alexia Formica</li>
+              <li>Federica Casu</li>
+              <li>Ginevra Mignano</li>
+              <li>Maria Valentina Marino</li>
+              <li>Syria Vannini</li>
+              <li>Veronica Bracco</li>
+            </ul>
+          </div>
+          <div class="contributor-card">
+            <h3>IIT</h3>
+            <ul class="contributor-list">
+              <li>Andrea Pagnin</li>
+              <li>Chiara Crippa</li>
+              <li>Benedetta Simoni</li>
+              <li>Stefano Gianazzi</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        const placeholder = document.getElementById('navbar-placeholder');
+        placeholder.innerHTML = data;
+
+        // Move .main-nav outside the placeholder, after it
+        const mainNav = placeholder.querySelector('.main-nav');
+        if (mainNav) {
+          placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
+        }
+
+        // Evidenzia il link attivo
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.href;
+        navLinks.forEach(link => link.classList.remove('active'));
+        let activeLinkFound = false;
+        navLinks.forEach(link => {
+          const linkHref = link.getAttribute('href');
+          if (currentPage.endsWith(linkHref)) {
+            link.classList.add('active');
+            activeLinkFound = true;
+          }
+        });
+        if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+          const homeLink = document.querySelector('a[href="homepage.html"]');
+          if (homeLink) homeLink.classList.add('active');
+        }
+        // --- MOBILE SIDEBAR LOGIC ---
+        const sidebar = document.querySelector('.mobile-sidebar');
+        const overlay = document.querySelector('.mobile-sidebar-overlay');
+        const menuButton = document.querySelector('.mobile-menu-button');
+        function openSidebar() {
+          sidebar.style.display = 'flex';
+          overlay.style.display = 'block';
+          menuButton.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+          sidebar.style.display = 'none';
+          overlay.style.display = 'none';
+          menuButton.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        if (menuButton && sidebar && overlay) {
+          menuButton.addEventListener('click', function() {
+            if (sidebar.style.display === 'flex') {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+          overlay.addEventListener('click', closeSidebar);
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSidebar();
+          });
+        }
+      });
+  </script>
+</body>
+</html> 
