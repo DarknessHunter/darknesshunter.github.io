@@ -45,6 +45,9 @@
 
     /* Top bar */
     .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       background-color: var(--color-bg-light);
       padding: 15px 0;
       border-bottom: 1px solid #acacac;
@@ -114,6 +117,9 @@
 
     /* Navbar */
     .main-nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
       background-color: var(--color-bg-white);
       height: 80px;
     }
@@ -416,7 +422,6 @@
   </style>
 </head>
 <body>
-  <header id="navbar">
     <!-- Top Bar -->
     <div class="top-bar">
       <div class="container top-bar-inner">
@@ -438,9 +443,7 @@
         </button>
       </div>
     </div>
-
   </header>
-
   <!-- Sidebar Mobile Overlay & Menu (sidebar starts below top-bar) -->
   <div class="mobile-sidebar-overlay" style="display:none;"></div>
   <nav class="mobile-sidebar" style="display:none; top:70px;">
@@ -460,14 +463,13 @@
       <li class="sidebar-item "><a href="ai-etica.html"></a>Al Etica</li>
       <li class="sidebar-item"><a href="perchè-ai-etica.html">Perchè Al Etica?</a></li>
       <li class="sidebar-item">Risorse e strumenti</li>
-      <li class="sidebar-item ">Chi siamo</li>
+      <li class="sidebar-item"><a href="chi-siamo.html">Chi siamo</a></li>
       <li class="sidebar-spacer"></li>
       <li class="sidebar-item"><a href="#">Logout</a></li>
       <li class="sidebar-item"><a href="#">Lingua</a></li>
       <li class="sidebar-spacer"></li>
     </ul>
   </nav>
-
   <!-- Navigation -->
   <nav class="main-nav">
     <div class="container main-nav-inner">
@@ -482,7 +484,6 @@
       </ul>
     </div>
   </nav>
-
   <script>
     // Evidenzia il link attivo
     const navLinks = document.querySelectorAll('.nav-link');
