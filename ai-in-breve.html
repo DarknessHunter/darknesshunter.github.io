@@ -7,91 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <div id="navbar-placeholder"></div>
-  <script>
-    // Funzione per inizializzare il JavaScript della navbar
-    function initNavbar() {
-        // Evidenzia il link attivo
-        const navLinks = document.querySelectorAll('.nav-link');
-        const currentPage = window.location.href;
-
-        navLinks.forEach(link => {
-            if (link.href === currentPage) {
-                link.classList.add('active');
-            }
-        });
-
-        if (currentPage.endsWith('/') || currentPage.endsWith('index.html')) {
-            const homeLink = document.querySelector('a[href="index.php"]');
-            if (homeLink) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                homeLink.classList.add('active');
-            }
-        }
-
-        // Toggle mobile menu
-        const menuButton = document.querySelector('.mobile-menu-button');
-        const mainNav = document.querySelector('.main-nav');
-        
-        if (menuButton && mainNav) {
-            menuButton.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-                console.log('Menu toggled:', mainNav.classList.contains('active'));
-            });
-        }
-    }
-    
-    fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-    
-    // Evidenzia il link attivo
-    const navLinks = document.querySelectorAll('.nav-link');
-    const currentPage = window.location.href;
-    navLinks.forEach(link => link.classList.remove('active'));
-    let activeLinkFound = false;
-    navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (currentPage.endsWith(linkHref)) {
-        link.classList.add('active');
-        activeLinkFound = true;
-      }
-    });
-    if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
-      const homeLink = document.querySelector('a[href=\"homepage.html\"]');
-      if (homeLink) homeLink.classList.add('active');
-    }
-
-    // --- MOBILE SIDEBAR LOGIC ---
-    const sidebar = document.querySelector('.mobile-sidebar');
-    const overlay = document.querySelector('.mobile-sidebar-overlay');
-    const menuButton = document.querySelector('.mobile-menu-button');
-    function openSidebar() {
-      sidebar.style.display = 'flex';
-      overlay.style.display = 'block';
-      menuButton.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeSidebar() {
-      sidebar.style.display = 'none';
-      overlay.style.display = 'none';
-      menuButton.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    menuButton.addEventListener('click', function() {
-      if (sidebar.style.display === 'flex') {
-        closeSidebar();
-      } else {
-        openSidebar();
-      }
-    });
-    overlay.addEventListener('click', closeSidebar);
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeSidebar();
-    });
-    });
-</script>
-
+ 
 
 <style>
     body {
@@ -878,182 +794,66 @@
             <a href="#top" class="scroll-to-top" aria-label="Torna all'inizio della pagina">
                 <span class="scroll-arrow">&#8679;</span>
             </a>
-            <script>
-            // Script unico per entrambi gli slider
-            (function() {
-                // --- Primo slider ---
-                const sliderSections = document.querySelectorAll('.ai-slider-section');
-                if (sliderSections.length < 1) return;
-                // Primo slider
-                const sliderSection1 = sliderSections[0];
-                const sliderBoxes1 = sliderSection1.querySelectorAll('.ai-slider-box');
-                const leftArrow1 = sliderSection1.querySelector('.ai-slider-arrow.left');
-                const rightArrow1 = sliderSection1.querySelector('.ai-slider-arrow.right');
-                const dots1 = sliderSection1.parentElement.querySelectorAll('.ai-slider-dot');
-                let currentSlide1 = 0;
-                function showSlide1(idx) {
-                    sliderBoxes1.forEach((box, i) => {
-                        box.classList.toggle('active', i === idx);
-                    });
-                    dots1.forEach((dot, i) => {
-                        dot.classList.toggle('active', i === idx);
-                    });
-                }
-                leftArrow1.addEventListener('click', () => {
-                    currentSlide1 = (currentSlide1 - 1 + sliderBoxes1.length) % sliderBoxes1.length;
-                    showSlide1(currentSlide1);
-                });
-                rightArrow1.addEventListener('click', () => {
-                    currentSlide1 = (currentSlide1 + 1) % sliderBoxes1.length;
-                    showSlide1(currentSlide1);
-                });
-                dots1.forEach((dot, i) => {
-                    dot.addEventListener('click', () => {
-                        currentSlide1 = i;
-                        showSlide1(currentSlide1);
-                    });
-                });
-                // Touch swipe per mobile (primo slider)
-                const sliderTrack1 = sliderSection1.querySelector('.ai-slider-track');
-                let touchStartX1 = 0;
-                let touchEndX1 = 0;
-                const swipeThreshold1 = 50;
-                sliderTrack1.addEventListener('touchstart', (e) => {
-                    touchStartX1 = e.changedTouches[0].screenX;
-                }, { passive: true });
-                sliderTrack1.addEventListener('touchend', (e) => {
-                    touchEndX1 = e.changedTouches[0].screenX;
-                    const swipeDistance = touchEndX1 - touchStartX1;
-                    if (Math.abs(swipeDistance) < swipeThreshold1) return;
-                    if (swipeDistance > 0) {
-                        currentSlide1 = (currentSlide1 - 1 + sliderBoxes1.length) % sliderBoxes1.length;
-                    } else {
-                        currentSlide1 = (currentSlide1 + 1) % sliderBoxes1.length;
-                    }
-                    showSlide1(currentSlide1);
-                }, { passive: true });
-                showSlide1(currentSlide1);
+             <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        const placeholder = document.getElementById('navbar-placeholder');
+        placeholder.innerHTML = data;
 
-                // --- Secondo slider ---
-                if (sliderSections.length < 2) return;
-                const sliderSection2 = sliderSections[1];
-                const sliderBoxes2 = sliderSection2.querySelectorAll('.ai-slider-box');
-                const leftArrow2 = sliderSection2.querySelector('.ai-slider-arrow.left');
-                const rightArrow2 = sliderSection2.querySelector('.ai-slider-arrow.right');
-                const dots2 = sliderSection2.parentElement.querySelectorAll('.ai-slider-dot');
-                let currentSlide2 = 0;
-                function showSlide2(idx) {
-                    sliderBoxes2.forEach((box, i) => {
-                        box.classList.toggle('active', i === idx);
-                    });
-                    if (dots2.length) {
-                        dots2.forEach((dot, i) => {
-                            dot.classList.toggle('active', i === idx);
-                        });
-                    }
-                }
-                leftArrow2.addEventListener('click', () => {
-                    currentSlide2 = (currentSlide2 - 1 + sliderBoxes2.length) % sliderBoxes2.length;
-                    showSlide2(currentSlide2);
-                });
-                rightArrow2.addEventListener('click', () => {
-                    currentSlide2 = (currentSlide2 + 1) % sliderBoxes2.length;
-                    showSlide2(currentSlide2);
-                });
-                if (dots2.length) {
-                    dots2.forEach((dot, i) => {
-                        dot.addEventListener('click', () => {
-                            currentSlide2 = i;
-                            showSlide2(currentSlide2);
-                        });
-                    });
-                }
-                // Touch swipe per mobile (secondo slider)
-                const sliderTrack2 = sliderSection2.querySelector('.ai-slider-track');
-                let touchStartX2 = 0;
-                let touchEndX2 = 0;
-                const swipeThreshold2 = 50;
-                sliderTrack2.addEventListener('touchstart', (e) => {
-                    touchStartX2 = e.changedTouches[0].screenX;
-                }, { passive: true });
-                sliderTrack2.addEventListener('touchend', (e) => {
-                    touchEndX2 = e.changedTouches[0].screenX;
-                    const swipeDistance = touchEndX2 - touchStartX2;
-                    if (Math.abs(swipeDistance) < swipeThreshold2) return;
-                    if (swipeDistance > 0) {
-                        currentSlide2 = (currentSlide2 - 1 + sliderBoxes2.length) % sliderBoxes2.length;
-                    } else {
-                        currentSlide2 = (currentSlide2 + 1) % sliderBoxes2.length;
-                    }
-                    showSlide2(currentSlide2);
-                }, { passive: true });
-                showSlide2(currentSlide2);
+        // Move .main-nav outside the placeholder, after it
+        const mainNav = placeholder.querySelector('.main-nav');
+        if (mainNav) {
+          placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
+        }
 
-                // --- Terzo slider ---
-                if (sliderSections.length < 3) return;
-                const sliderSection3 = sliderSections[2];
-                const sliderBoxes3 = sliderSection3.querySelectorAll('.ai-slider-box');
-                const leftArrow3 = sliderSection3.querySelector('.ai-slider-arrow.left3');
-                const rightArrow3 = sliderSection3.querySelector('.ai-slider-arrow.right3');
-                const dots3 = sliderSection3.parentElement.querySelectorAll('.ai-slider-dot');
-                let currentSlide3 = 0;
-                function showSlide3(idx) {
-                    sliderBoxes3.forEach((box, i) => {
-                        box.classList.toggle('active2', i === idx);
-                        box.classList.toggle('active', i === idx); // fallback per compatibilità
-                    });
-                    if (dots3.length) {
-                        dots3.forEach((dot, i) => {
-                            dot.classList.toggle('active', i === idx);
-                        });
-                    }
-                }
-                leftArrow3.addEventListener('click', () => {
-                    currentSlide3 = (currentSlide3 - 1 + sliderBoxes3.length) % sliderBoxes3.length;
-                    showSlide3(currentSlide3);
-                });
-                rightArrow3.addEventListener('click', () => {
-                    currentSlide3 = (currentSlide3 + 1) % sliderBoxes3.length;
-                    showSlide3(currentSlide3);
-                });
-                if (dots3.length) {
-                    dots3.forEach((dot, i) => {
-                        dot.addEventListener('click', () => {
-                            currentSlide3 = i;
-                            showSlide3(currentSlide3);
-                        });
-                    });
-                }
-                // Touch swipe per mobile (terzo slider)
-                const sliderTrack3 = sliderSection3.querySelector('.ai-slider-track');
-                let touchStartX3 = 0;
-                let touchEndX3 = 0;
-                const swipeThreshold3 = 50;
-                sliderTrack3.addEventListener('touchstart', (e) => {
-                    touchStartX3 = e.changedTouches[0].screenX;
-                }, { passive: true });
-                sliderTrack3.addEventListener('touchend', (e) => {
-                    touchEndX3 = e.changedTouches[0].screenX;
-                    const swipeDistance = touchEndX3 - touchStartX3;
-                    if (Math.abs(swipeDistance) < swipeThreshold3) return;
-                    if (swipeDistance > 0) {
-                        currentSlide3 = (currentSlide3 - 1 + sliderBoxes3.length) % sliderBoxes3.length;
-                    } else {
-                        currentSlide3 = (currentSlide3 + 1) % sliderBoxes3.length;
-                    }
-                    showSlide3(currentSlide3);
-                }, { passive: true });
-                showSlide3(currentSlide3);
-            })();
-            </script>
-            <script>
-            document.querySelectorAll('.scroll-to-top').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
-            </script>
+        // Evidenzia il link attivo
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.href;
+        navLinks.forEach(link => link.classList.remove('active'));
+        let activeLinkFound = false;
+        navLinks.forEach(link => {
+          const linkHref = link.getAttribute('href');
+          if (currentPage.endsWith(linkHref)) {
+            link.classList.add('active');
+            activeLinkFound = true;
+          }
+        });
+        if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+          const homeLink = document.querySelector('a[href="homepage.html"]');
+          if (homeLink) homeLink.classList.add('active');
+        }
+        // --- MOBILE SIDEBAR LOGIC ---
+        const sidebar = document.querySelector('.mobile-sidebar');
+        const overlay = document.querySelector('.mobile-sidebar-overlay');
+        const menuButton = document.querySelector('.mobile-menu-button');
+        function openSidebar() {
+          sidebar.style.display = 'flex';
+          overlay.style.display = 'block';
+          menuButton.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+          sidebar.style.display = 'none';
+          overlay.style.display = 'none';
+          menuButton.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        if (menuButton && sidebar && overlay) {
+          menuButton.addEventListener('click', function() {
+            if (sidebar.style.display === 'flex') {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+          overlay.addEventListener('click', closeSidebar);
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSidebar();
+          });
+        }
+      });
+  </script>
     </section>
 </main>
 
