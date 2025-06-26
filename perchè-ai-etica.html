@@ -198,91 +198,68 @@
 </head>
 <body>
   <div id="navbar-placeholder"></div>
-  <script>
-    // Funzione per inizializzare il JavaScript della navbar
-    function initNavbar() {
+  
+  <main>
+      <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        const placeholder = document.getElementById('navbar-placeholder');
+        placeholder.innerHTML = data;
+
+        // Move .main-nav outside the placeholder, after it
+        const mainNav = placeholder.querySelector('.main-nav');
+        if (mainNav) {
+          placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
+        }
+
         // Evidenzia il link attivo
         const navLinks = document.querySelectorAll('.nav-link');
         const currentPage = window.location.href;
-
+        navLinks.forEach(link => link.classList.remove('active'));
+        let activeLinkFound = false;
         navLinks.forEach(link => {
-            if (link.href === currentPage) {
-                link.classList.add('active');
-            }
+          const linkHref = link.getAttribute('href');
+          if (currentPage.endsWith(linkHref)) {
+            link.classList.add('active');
+            activeLinkFound = true;
+          }
         });
-
-        if (currentPage.endsWith('/') || currentPage.endsWith('index.html')) {
-            const homeLink = document.querySelector('a[href="index.php"]');
-            if (homeLink) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                homeLink.classList.add('active');
-            }
+        if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+          const homeLink = document.querySelector('a[href="homepage.html"]');
+          if (homeLink) homeLink.classList.add('active');
         }
-
-        // Toggle mobile menu
+        // --- MOBILE SIDEBAR LOGIC ---
+        const sidebar = document.querySelector('.mobile-sidebar');
+        const overlay = document.querySelector('.mobile-sidebar-overlay');
         const menuButton = document.querySelector('.mobile-menu-button');
-        const mainNav = document.querySelector('.main-nav');
-        
-        if (menuButton && mainNav) {
-            menuButton.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-                console.log('Menu toggled:', mainNav.classList.contains('active'));
-            });
+        function openSidebar() {
+          sidebar.style.display = 'flex';
+          overlay.style.display = 'block';
+          menuButton.classList.add('active');
+          document.body.style.overflow = 'hidden';
         }
-    }
-    
-    fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-    
-    // Evidenzia il link attivo
-    const navLinks = document.querySelectorAll('.nav-link');
-    const currentPage = window.location.href;
-    navLinks.forEach(link => link.classList.remove('active'));
-    let activeLinkFound = false;
-    navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (currentPage.endsWith(linkHref)) {
-        link.classList.add('active');
-        activeLinkFound = true;
-      }
-    });
-    if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
-      const homeLink = document.querySelector('a[href=\"homepage.html\"]');
-      if (homeLink) homeLink.classList.add('active');
-    }
-
-    // --- MOBILE SIDEBAR LOGIC ---
-    const sidebar = document.querySelector('.mobile-sidebar');
-    const overlay = document.querySelector('.mobile-sidebar-overlay');
-    const menuButton = document.querySelector('.mobile-menu-button');
-    function openSidebar() {
-      sidebar.style.display = 'flex';
-      overlay.style.display = 'block';
-      menuButton.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeSidebar() {
-      sidebar.style.display = 'none';
-      overlay.style.display = 'none';
-      menuButton.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    menuButton.addEventListener('click', function() {
-      if (sidebar.style.display === 'flex') {
-        closeSidebar();
-      } else {
-        openSidebar();
-      }
-    });
-    overlay.addEventListener('click', closeSidebar);
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeSidebar();
-    });
-    });
-</script>
-  <main>
+        function closeSidebar() {
+          sidebar.style.display = 'none';
+          overlay.style.display = 'none';
+          menuButton.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        if (menuButton && sidebar && overlay) {
+          menuButton.addEventListener('click', function() {
+            if (sidebar.style.display === 'flex') {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+          overlay.addEventListener('click', closeSidebar);
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSidebar();
+          });
+        }
+      });
+  </script>
     <section class="ai-in-breve">
       <div class="container">
         <h2 class="section-title-brief">Perchè AI etica?</h2>
