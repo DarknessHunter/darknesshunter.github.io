@@ -857,5 +857,53 @@
     </section>
 </main>
 
+<script>
+// --- AI SLIDER LOGIC ---
+document.querySelectorAll('.ai-slider-container').forEach(function(container) {
+    const track = container.querySelector('.ai-slider-track');
+    const boxes = track ? Array.from(track.querySelectorAll('.ai-slider-box')) : [];
+    const leftArrow = container.querySelector('.ai-slider-arrow.left, .ai-slider-arrow.left3');
+    const rightArrow = container.querySelector('.ai-slider-arrow.right, .ai-slider-arrow.right3');
+    const dots = container.querySelectorAll('.ai-slider-dot');
+    let activeIndex = boxes.findIndex(box => box.classList.contains('active') || box.classList.contains('active2'));
+    if (activeIndex === -1) activeIndex = 0;
+
+    function updateSlider(newIndex) {
+        if (newIndex < 0 || newIndex >= boxes.length) return;
+        boxes.forEach((box, i) => {
+            box.classList.remove('active', 'active2');
+            if (i === newIndex) {
+                // Use 'active2' if it was used originally, else 'active'
+                if (box.classList.contains('active2') || (boxes[0].classList.contains('active2') && !boxes[0].classList.contains('active'))) {
+                    box.classList.add('active2');
+                } else {
+                    box.classList.add('active');
+                }
+            }
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === newIndex);
+        });
+        activeIndex = newIndex;
+    }
+
+    if (leftArrow) {
+        leftArrow.addEventListener('click', function() {
+            updateSlider((activeIndex - 1 + boxes.length) % boxes.length);
+        });
+    }
+    if (rightArrow) {
+        rightArrow.addEventListener('click', function() {
+            updateSlider((activeIndex + 1) % boxes.length);
+        });
+    }
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', function() {
+            updateSlider(i);
+        });
+    });
+});
+</script>
+
 </body>
 </html> 
