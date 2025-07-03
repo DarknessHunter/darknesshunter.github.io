@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Example</title>
+  <link href="https://fonts.googleapis.com/css?family=Exo:300,500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+    }
+    .custom-footer {
+      background: #1d1d1b;
+      color: #eee;
+      width: 100%;
+      position: relative;
+      font-family: 'Exo', Arial, sans-serif;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1215px;
+      margin: 0 auto;
+      padding: 20px 40px 0 40px;
+      font-family: 'Exo', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 24px;
+    }
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .footer-logos {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo {
+      height: 24px;
+      vertical-align: middle;
+    }
+    .footer-right {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      margin-top: 4px;
+    }
+    .footer-right a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 24px;
+      font-family: 'Exo', Arial, sans-serif;
+      font-weight: 500;
+    }
+    .footer-right a:hover {
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 10px 0 10px 0;
+      color: #bbb;
+      font-family: 'Exo', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 16px;
+    }
+    .footer-mobile-text {
+      display: none;
+    }
+    .footer-desktop-text {
+      display: inline;
+    }
+    @media (max-width: 700px) {
+      .footer-top {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 16px 4vw 0 4vw;
+        text-align: left;
+        font-size: 13px;
+        line-height: 22px;
+      }
+      .footer-left {
+        align-items: flex-start;
+        margin: 10px 0;
+        flex: 1;
+      }
+      .footer-right {
+        align-items: flex-end;
+        margin: 10px 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .footer-logos {
+        gap: 16px;
+        margin-top: 12px;
+        justify-content: flex-start;
+        display: flex;
+      }
+      .footer-logo {
+        height: 32px;
+      }
+      .footer-right a {
+        font-size: 20px;
+        padding: 10px 0;
+        display: block;
+      }
+      .footer-bottom {
+        font-size: 15px;
+        padding: 12px 0 12px 0;
+      }
+      .custom-footer {
+        font-size: 18px;
+      }
+      .footer-mobile-text {
+        display: inline;
+      }
+      .footer-desktop-text {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer class="custom-footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <span class="footer-desktop-text">Visita i siti degli enti che hanno partecipato a questo progetto:</span>
+        <span class="footer-mobile-text">Visita i siti degli enti che hanno<br>partecipato a questo progetto:</span>
+        <div class="footer-logos">
+          <img src=images/logo.png alt="RAISE Logo" class="footer-logo">
+          <!-- Add more logos here if needed -->
+        </div>
+      </div>
+      <div class="footer-right">
+        <a href="chi-siamo.html">Chi siamo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Progetto RAISE – Tutti i diritti riservati.
+    </div>
+  </footer>
+</body>
+</html> 
