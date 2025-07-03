@@ -7,12 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Exo', sans-serif;
-      background: #EFF1F0;
-      color: #000;
-      margin: 0;
-      padding: 0;
+    html, body {
+      background: #EFF1F0 !important;
+      min-height: 100vh;
     }
     .container {
       max-width: 1215px;
@@ -21,8 +18,8 @@
     }
     main.chi-siamo {
       background-color: #EFF1F0;
-      min-height: 100vh;
-      padding: 40px 0 60px 0;
+      min-height: 100%;
+      padding: 40px 0 60px 13px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -32,12 +29,12 @@
       font-weight: 700;
       font-size: 41px;
       text-align: center;
-      margin-bottom: 70px;
+      margin-bottom: 30px;
       margin-top: 0;
     }
     .chi-siamo-main {
       max-width: 800px;
-      text-align: center;
+      text-align: left;
       margin-bottom: 70px;
     }
     .chi-siamo-main p {
@@ -46,15 +43,15 @@
     }
     .chi-siamo-main .bold {
       font-family: 'Exo', sans-serif;
-      font-weight: 700;
-      font-size: 33px;
-      margin-bottom: 70px;
+      font-weight: 800;
+      font-size: 31px;
+      margin-bottom: 40px;
       display: block;
     }
     .chi-siamo-main .sub-bold {
       font-family: 'Exo', sans-serif;
-      font-weight: 700;
-      font-size: 40px;
+      font-weight: 800;
+      font-size: 20px;
       margin-bottom: 140px;
       display: block;
     }
@@ -72,31 +69,30 @@
     }
     .contributors-cards {
       display: flex;
-      gap: 32px;
-      justify-content: center;
+      gap: 30px;
+      justify-content: left;
       flex-wrap: wrap;
     }
     .contributor-card {
       background: #FFFFFF;
       border-radius: 50px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      padding: 32px 36px 28px 36px;
-      min-width: 260px;
-      max-width: 340px;
+      padding: 36px 36px 28px 36px;
+      max-width: 370px;
       flex: 1 1 300px;
       margin-bottom: 24px;
     }
     .contributor-card h3 {
       font-family: 'Exo', sans-serif;
-      font-weight: 500;
-      font-size: 40px;
+      font-weight: 600;
+      font-size: 23px;
       margin-bottom: 18px;
       margin-top: 0;
     }
     .contributor-list {
       font-family: 'Exo', sans-serif;
-      font-weight: 500;
-      font-size: 27px;
+      font-weight: 600;
+      font-size: 13px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -132,9 +128,51 @@
     .mobile-cards { display: none; }
 
     /* On mobile, show mobile version, hide desktop */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .desktop-cards { display: none !important; }
       .mobile-cards { display: flex !important; }
+      .chi-siamo-centered-content {
+        margin-right: 35px;
+        margin-left: 20px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .chi-siamo-main {
+        margin-bottom: 0px;
+      }
+      .contributors-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+      }
+      .contributor-card {
+        
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 22px 14px 0px 22px;
+        border-radius: 24px;
+      }
+      .contributor-list{
+        font-size: 19px;
+      }
+      .contributors-title{
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+      .chi-siamo-main{
+        margin-bottom: -100px;
+      }
+      html, body, main.chi-siamo {
+        background: #fcfcfc !important;
+      }
+      .chi-siamo-main .bold{
+        font-size: 25px
+      }
+      .chi-siamo-main .sub-bold{
+        font-weight: 500;
+      }
     }
   </style>
 </head>
@@ -281,19 +319,5 @@
         }
       });
   </script>
-  <div id="footer-container"></div>
-  <script>
-  fetch('footer.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.text();
-    })
-    .then(html => {
-      document.getElementById('footer-container').innerHTML = html;
-    })
-    .catch(error => {
-      console.error('Error loading footer:', error);
-    });
-</script>
 </body>
 </html> 

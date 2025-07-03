@@ -8,7 +8,112 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <div id="navbar-placeholder"></div>
 
+<script>
+    // Carica la navbar
+    fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        const placeholder = document.getElementById('navbar-placeholder');
+        placeholder.innerHTML = data;
 
+        // Move .main-nav outside the placeholder, after it
+        const mainNav = placeholder.querySelector('.main-nav');
+        if (mainNav) {
+          placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
+        }
+    
+    // Evidenzia il link attivo
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentPage = window.location.href;
+    navLinks.forEach(link => link.classList.remove('active'));
+    let activeLinkFound = false;
+    navLinks.forEach(link => {
+      const linkHref = link.getAttribute('href');
+      if (currentPage.endsWith(linkHref)) {
+        link.classList.add('active');
+        activeLinkFound = true;
+      }
+    });
+    if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+          const homeLink = document.querySelector('a[href="homepage.html"]');
+      if (homeLink) homeLink.classList.add('active');
+    }
+    // --- MOBILE SIDEBAR LOGIC ---
+    const sidebar = document.querySelector('.mobile-sidebar');
+    const overlay = document.querySelector('.mobile-sidebar-overlay');
+    const menuButton = document.querySelector('.mobile-menu-button');
+    function openSidebar() {
+      sidebar.style.display = 'flex';
+      overlay.style.display = 'block';
+      menuButton.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.style.display = 'none';
+      overlay.style.display = 'none';
+      menuButton.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+        if (menuButton && sidebar && overlay) {
+    menuButton.addEventListener('click', function() {
+      if (sidebar.style.display === 'flex') {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+    overlay.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSidebar();
+    });
+        }
+      });
+      // --- mobile slider logic ---
+      document.addEventListener('DOMContentLoaded', function() {
+        function setupDefinitionsSlider() {
+            if (window.innerWidth > 768) return; // Solo mobile
+            const section = document.querySelector('.definitions-section');
+            if (!section) return;
+            const cards = Array.from(section.querySelectorAll('.def-card'));
+            const dots = Array.from(section.querySelectorAll('.dot'));
+            let activeIndex = cards.findIndex(card => card.classList.contains('active'));
+            if (activeIndex === -1) activeIndex = 0;
+
+            function updateSlider(newIndex) {
+                // Disabilita tutte le cards
+                cards.forEach(card => {
+                    card.style.display = 'none';
+                    card.classList.remove('active');
+                });
+                
+                // Disabilita tutti i dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Abilita la nuova card
+                cards[newIndex].style.display = 'flex';
+                setTimeout(() => {
+                    cards[newIndex].classList.add('active');
+                }, 10); // Piccolo timeout per permettere al browser di processare il display
+                
+                // Abilita il nuovo dot
+                dots[newIndex].classList.add('active');
+                activeIndex = newIndex;
+            }
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', function() {
+                    updateSlider(i);
+                });
+            });
+
+            // Mostra la prima card all'avvio
+            updateSlider(activeIndex);
+        }
+
+        setupDefinitionsSlider();
+        window.addEventListener('resize', setupDefinitionsSlider);
+    });
+</script>
 
 
 <style>
@@ -32,7 +137,7 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-        background-image: url('images/IMG_Tavoladisegno1.png');
+        background-image: url('images/IMG_Tavola disegno 1.png');
         background-size: cover;
         background-position: center;
         filter: brightness(70%);
@@ -152,80 +257,6 @@
             </div>
         </div>
     </div>
-    <script>
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        const placeholder = document.getElementById('navbar-placeholder');
-        placeholder.innerHTML = data;
-
-        // Move .main-nav outside the placeholder, after it
-        const mainNav = placeholder.querySelector('.main-nav');
-        if (mainNav) {
-          placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
-        }
-
-        // Evidenzia il link attivo
-        const navLinks = document.querySelectorAll('.nav-link');
-        const currentPage = window.location.href;
-        navLinks.forEach(link => link.classList.remove('active'));
-        let activeLinkFound = false;
-        navLinks.forEach(link => {
-          const linkHref = link.getAttribute('href');
-          if (currentPage.endsWith(linkHref)) {
-            link.classList.add('active');
-            activeLinkFound = true;
-          }
-        });
-        if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
-          const homeLink = document.querySelector('a[href="homepage.html"]');
-          if (homeLink) homeLink.classList.add('active');
-        }
-        // --- MOBILE SIDEBAR LOGIC ---
-        const sidebar = document.querySelector('.mobile-sidebar');
-        const overlay = document.querySelector('.mobile-sidebar-overlay');
-        const menuButton = document.querySelector('.mobile-menu-button');
-        function openSidebar() {
-          sidebar.style.display = 'flex';
-          overlay.style.display = 'block';
-          menuButton.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-        function closeSidebar() {
-          sidebar.style.display = 'none';
-          overlay.style.display = 'none';
-          menuButton.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-        if (menuButton && sidebar && overlay) {
-          menuButton.addEventListener('click', function() {
-            if (sidebar.style.display === 'flex') {
-              closeSidebar();
-            } else {
-              openSidebar();
-            }
-          });
-          overlay.addEventListener('click', closeSidebar);
-          document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeSidebar();
-          });
-        }
-      });
-  </script>
-  <div id="footer-container"></div>
-  <script>
-  fetch('footer.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.text();
-    })
-    .then(html => {
-      document.getElementById('footer-container').innerHTML = html;
-    })
-    .catch(error => {
-      console.error('Error loading footer:', error);
-    });
-</script>
 </main>
 
 </body>

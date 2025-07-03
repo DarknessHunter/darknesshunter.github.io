@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Risorse e strumenti - RAISE Replica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Exo', sans-serif;
+      background-color: #EFF1F0;
+      
+    }
+    .ai-in-breve {
+      background-color: #EFF1F0;
+      padding: 0;
+      font-family: 'Exo', sans-serif;
+    }
+    .ai-in-breve .container {
+      max-width: 1215px;
+      margin: 0 auto;
+      padding: 0 3px;
+      padding-left: 22px;
+      box-sizing: border-box;
+      
+    }
+    .risorse-box {
+      background: #fff;
+      border: 1px solid #8d8d8d;
+      padding: 35px 40px 0px 93px;
+      max-width: 770px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+    }
+    .section-title-brief {
+      text-align: center;
+      font-size: 45px;
+      font-weight: 650;
+      margin-top: 20px;
+      margin-right: 61px;
+      margin-bottom: 48px;
+      color: #000;
+      letter-spacing: -2px;
+      line-height: 1.05;
+    }
+    .risorse-columns {
+      display: flex;
+      flex-direction: row;
+      gap: 0px;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .risorse-col {
+      flex: 1 1 0;
+      min-width: 320px;
+      max-width: 420px;
+      padding: 0 10px;
+    }
+    .risorse-col-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #111;
+      line-height: 1.15;
+      margin-top: 0;
+    }
+    .risorse-divider {
+      border: none;
+      border-top: 1.3px solid #222;
+      margin: 18px 0 20px 0;
+      width: 100%;
+    }
+    .risorse-section-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px 0;
+    }
+    .risorse-section-list li {
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #222;
+      margin-left: 30px;
+    }
+    .risorse-link-interno, .risorse-link-esterno {
+      color: #111;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .risorse-link-interno:hover, .risorse-link-esterno:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+    .risorse-link-esterno i {
+      margin-left: 3px;
+      font-size: 0.9em;
+    }
+    .risorse-contatto {
+      color: #222;
+      font-weight: 400;
+      text-decoration: none;
+      cursor: default;
+    }
+    .risorse-section-list .disabled {
+      color: #bdbdbd;
+      text-decoration: none;
+      cursor: default;
+    }
+    .risorse-section-subtitle {
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 8px;
+      color: #111;
+    }
+    .risorse-section-list {
+      margin-bottom: 24px;
+    }
+    @media (max-width: 1100px) {
+      .risorse-box {
+        padding: 0 10px 30px 10px;
+        max-width: 100%;
+      }
+      .risorse-columns {
+        gap: 20px;
+      }
+    }
+    @media (max-width: 900px) {
+      .risorse-columns {
+        flex-direction: column;
+        gap: 40px;
+        align-items: stretch;
+      }
+      .risorse-col {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .ai-in-breve .container {
+        padding: 0 2vw;
+      }
+      .risorse-box {
+        padding: 0 2vw 10px 2vw;
+      }
+      .section-title-brief {
+        font-size: 32px;
+        margin-top: 20px;
+        margin-bottom: 24px;
+      }
+      .risorse-col-title {
+        font-size: 20px;
+      }
+      .risorse-section-subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    // Carica la navbar come in ai-in-breve.html
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        const placeholder = document.getElementById('navbar-placeholder');
+        placeholder.innerHTML = data;
+        // Move .main-nav outside the placeholder, after it
+        const mainNav = placeholder.querySelector('.main-nav');
+        if (mainNav) {
+          placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
+        }
+        // Evidenzia il link attivo
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.href;
+        navLinks.forEach(link => link.classList.remove('active'));
+        let activeLinkFound = false;
+        navLinks.forEach(link => {
+          const linkHref = link.getAttribute('href');
+          if (currentPage.endsWith(linkHref)) {
+            link.classList.add('active');
+            activeLinkFound = true;
+          }
+        });
+        if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+          const homeLink = document.querySelector('a[href="homepage.html"]');
+          if (homeLink) homeLink.classList.add('active');
+        }
+        // --- MOBILE SIDEBAR LOGIC ---
+        const sidebar = document.querySelector('.mobile-sidebar');
+        const overlay = document.querySelector('.mobile-sidebar-overlay');
+        const menuButton = document.querySelector('.mobile-menu-button');
+        function openSidebar() {
+          sidebar.style.display = 'flex';
+          overlay.style.display = 'block';
+          menuButton.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+          sidebar.style.display = 'none';
+          overlay.style.display = 'none';
+          menuButton.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        if (menuButton && sidebar && overlay) {
+          menuButton.addEventListener('click', function() {
+            if (sidebar.style.display === 'flex') {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+          overlay.addEventListener('click', closeSidebar);
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSidebar();
+          });
+        }
+      });
+  </script>
+  <main>
+    <section class="ai-in-breve">
+      <div class="container">
+        <div class="risorse-box">
+          <h1 class="section-title-brief">Risorse e strumenti</h1>
+          <div class="risorse-columns">
+            <!-- Colonna metodologica -->
+            <div class="risorse-col">
+              <h2 class="risorse-col-title">Risorse e strumenti<br> metodologici</h2>
+              <hr class="risorse-divider">
+              <h3 class="risorse-section-subtitle">Corsi & Tutorial</h3>
+              <ul class="risorse-section-list">
+                <li><a class="risorse-link-esterno" href="https://www.raiseliguria.it/" target="_blank">Corsi di formazione alla cittadinanza digitale RAISE <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+              </ul>
+              <h3 class="risorse-section-subtitle">Riferimenti e linee guida</h3>
+              <ul class="risorse-section-list">
+                <li><a class="risorse-link-interno" href="#">Riproducibilità & Robustezza</a></li>
+                <li><a class="risorse-link-interno" href="#">Allineamento e fairness</a></li>
+                <li><a class="risorse-link-interno" href="#">Trasparenza sui dati</a></li>
+                <li><a class="risorse-link-interno" href="#">Trasparenza sui modelli</a></li>
+                <li><a class="risorse-link-interno" href="#">Hybrid Human-AI</a></li>
+                <li><a class="risorse-link-interno" href="#">Dati Open e FAIR</a></li>
+              </ul>
+              <h3 class="risorse-section-subtitle">Contatti & Consulenza</h3>
+              <ul class="risorse-section-list">
+                <li><span class="risorse-contatto">per inquiry scrivi a<br>segreteria@raiseliguria.it</span></li>
+              </ul>
+            </div>
+            <!-- Colonna etico-legale -->
+            <div class="risorse-col">
+              <h2 class="risorse-col-title">Risorse e strumenti<br> etico-legali</h2>
+              <hr class="risorse-divider">
+              <h3 class="risorse-section-subtitle">Corsi & Tutorial</h3>
+              <ul class="risorse-section-list">
+                <li><a class="risorse-link-esterno" href="https://www.raiseliguria.it/" target="_blank">Corsi di formazione alla cittadinanza digitale RAISE <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+              </ul>
+              <h3 class="risorse-section-subtitle">Riferimenti e linee guida</h3>
+              <ul class="risorse-section-list">
+                <li><a class="risorse-link-esterno" href="https://ai-act-explorer.eu/" target="_blank">Ai act explorer <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+              </ul>
+              <h3 class="risorse-section-subtitle">Checklist</h3>
+              <ul class="risorse-section-list">
+                <li><a class="risorse-link-esterno" href="https://ai-act-checklist.eu/" target="_blank">Ai act checklist <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+              </ul>
+              <h3 class="risorse-section-subtitle">Contatti & Consulenza</h3>
+              <ul class="risorse-section-list">
+                <li><span class="risorse-contatto">per inquiry scrivi a<br>segreteria@raiseliguria.it</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Spazio grigio sotto il box -->
+        <div style="height:70px; width:100%; background:#EFF1F0;"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
