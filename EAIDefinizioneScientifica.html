@@ -1069,6 +1069,14 @@
     // Inizializza tutti gli slider nella pagina
     document.querySelectorAll('.slider-container').forEach(initializeSlider);
   </script>
-
+<div id="footer-placeholder"></div>
+  <script>
+    // Carica il footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
 </body>
 </html>
