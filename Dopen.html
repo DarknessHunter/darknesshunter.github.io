@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Riproducibilità e Robustezza - RAISE Replica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Exo', sans-serif;
+      background-color: #EFF1F0;
+      margin: 0;
+      padding: 0;
+    }
+    .aligned-section {
+      max-width: 800px;
+      margin-top: 0;
+      margin-left: 545px;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .section-title-brief {
+      width: 100%;
+      text-align: left;
+      font-size: 45px;
+      font-weight: 700;
+      margin-top: 70px;
+      margin-bottom: 70px;
+      color: #000;
+      letter-spacing: -2px;
+     /* line-height: 1.05; 
+	 */ 
+	 
+    }
+	 .section-title-brief1 {
+      width: 100%;
+      text-align: left;
+      font-size: 45px;
+      font-weight: 700;
+      color: #000;
+      letter-spacing: -2px;
+      line-height: 1.05;
+	        margin-bottom: 70px;
+
+    }
+    .subtitle-brief {
+      font-size: 18px;
+	  font-weight: 300;
+      color: #222;
+      margin-bottom: 80px;
+      max-width: 100%;
+	  margin-left: 0;
+    }
+    .main-section-title {
+      font-size: 45px;
+      font-weight: 500;
+      margin-bottom: 18px;
+      color: #111;
+      line-height: 1.15;
+      margin-top: 70px;
+    }
+    .main-section-subtitle {
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 18px;
+      color: #111;
+      line-height: 1.15;
+      margin-top: 0;
+    }
+    .main-section-content {
+      font-size: 27px;
+	  font-weight: 400;
+	  margin-left:0;
+      color: #222;
+      max-width: 100%;
+	  margin-bottom:10px;
+    }
+    .main-section-list {
+	  list-style: none;
+
+      font-size: 27px;
+	  	  font-weight: 400;
+
+      color: #222;
+      margin-bottom: 140px;
+      margin-left: 0;
+      max-width: 100%;
+    }
+    .main-section-list li {
+      margin-bottom: 10px;
+    }
+    .external-link {
+      color: #111;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .external-link:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+    .external-link i {
+      margin-left: 0px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 1200px) {
+      .aligned-section {
+        margin-left: 60px;
+      }
+    }
+    @media (max-width: 900px) {
+      .aligned-section {
+        padding-left: 37px;
+        margin-left: 0;
+      }
+      .section-title-brief {
+        font-size: 39px;
+		font-weight: 700;
+        margin-top: 34px;
+        margin-bottom: 21px;
+      }
+      .main-section-title {
+        font-size: 27px;
+		      font-weight: 500;
+        margin-top: 36px;
+        margin-bottom: 2px;
+      }
+      .main-section-subtitle {
+        font-size: 18px;
+      }
+      .main-section-content, .main-section-list {
+        font-size: 21px;
+		 font-weight: 300; /* 300 is Light for Exo */
+
+        margin-bottom: 3px;
+      }
+      .subtitle-brief{
+	  font-size: 21px;
+	  font-weight: 300;
+	  	margin-bottom:0;
+	  }
+      .section-title-brief1 {
+        font-size: 27px;
+        font-weight: 700;
+        margin-bottom: 21px;
+        margin-top: 0;
+      }
+	  .external-link {
+    font-size: 21px;
+    font-weight: 300;
+    padding: 8px 0;
+    display: inline-block;
+  }
+  .external-link i {
+    font-size: 1em;
+    margin-left: 4px;
+  }
+}
+    }
+    @media (max-width: 600px) {
+      .aligned-section {
+        padding-left: 37px;
+        margin-left: 0;
+		padding-right:37px;
+      }
+      .section-title-brief {
+       font-size: 39px;
+		font-weight: 700;
+       margin-top: 34px;
+        margin-bottom: 21px;
+      }
+      .main-section-title {
+        font-size: 27px;
+		      font-weight: 500;
+        margin-bottom: 2px;
+      }
+      .main-section-subtitle {
+        font-size: 18px;
+      }
+      .main-section-content, .main-section-list {
+        font-size: 21px;
+		 font-weight: 300; /* 300 is Light for Exo */
+        margin-bottom: 3px;
+      }
+      .subtitle-brief,
+      .section-title-brief1 {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+				margin-bottom:21px;
+				
+
+      }
+	  
+	.external-link {
+    font-size: 21px;
+    font-weight: 300;
+    padding: 8px 0;
+    display: inline-block;
+  }
+  .external-link i {
+    font-size: 1em;
+    margin-left: 4px;
+  }
+}
+
+    
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    // Carica la navbar
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        const placeholder = document.getElementById('navbar-placeholder');
+        placeholder.innerHTML = data;
+        // Move .main-nav outside the placeholder, after it
+        const mainNav = placeholder.querySelector('.main-nav');
+        if (mainNav) {
+          placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
+        }
+        // Evidenzia il link attivo
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.href;
+        navLinks.forEach(link => link.classList.remove('active'));
+        let activeLinkFound = false;
+        navLinks.forEach(link => {
+          const linkHref = link.getAttribute('href');
+          if (currentPage.endsWith(linkHref)) {
+            link.classList.add('active');
+            activeLinkFound = true;
+          }
+        });
+        if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
+          const homeLink = document.querySelector('a[href="homepage.html"]');
+          if (homeLink) homeLink.classList.add('active');
+        }
+		// --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
+    if (risorseToggle) {
+      risorseToggle.addEventListener('click', function(e) {
+        if (e.target.classList.contains('sidebar-link')) {
+          e.preventDefault();
+          var submenu = risorseToggle.querySelector('.sidebar-submenu');
+          if (submenu) {
+            submenu.classList.toggle('open');
+          }
+        }
+      });
+    }
+        // --- MOBILE SIDEBAR LOGIC ---
+        const sidebar = document.querySelector('.mobile-sidebar');
+        const overlay = document.querySelector('.mobile-sidebar-overlay');
+        const menuButton = document.querySelector('.mobile-menu-button');
+        function openSidebar() {
+          sidebar.style.display = 'flex';
+          overlay.style.display = 'block';
+          menuButton.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+          sidebar.style.display = 'none';
+          overlay.style.display = 'none';
+          menuButton.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        if (menuButton && sidebar && overlay) {
+          menuButton.addEventListener('click', function() {
+            if (sidebar.style.display === 'flex') {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+          overlay.addEventListener('click', closeSidebar);
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSidebar();
+          });
+        }
+      });
+  </script>
+  <main>
+    <section>
+      <div class="aligned-section">
+        <h1 class="section-title-brief">Risorse e strumenti<br> metodologici</h1>
+        <div class="subtitle-brief">Qui potrai trovare strumenti per progettare sistemi<br>AI responsabili. Risorse pensate per integrare<br>concretamente l'etica nei processi tecnici.</div>
+        <div class="main-section-title">Riferimenti e linee guida</div>
+        <div class="section-title-brief1">Dati Open e FAIR </div>
+		<div class="main-section-content">
+         Favorire la condivisione responsabile e verificabile:
+		</div>
+		<ul class="main-section-list">
+     <li>
+  <a class="external-link" href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noopener">
+    Principi FAIR <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  </a>
+<br>
+  <a class="external-link" href="https://theodi.org/" target="_blank" rel="noopener">
+    Open Data Institute <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  </a>
+<br>
+  <a class="external-link" href="https://artificialintelligenceact.eu/article-10/" target="_blank" rel="noopener">
+    AI Act – Qualità e tracciabilità dei dati <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  </a>
+</li>
+      </div>
+      
+  </main>
+  <div id="footer-placeholder"></div>
+  <script>
+    // Carica il footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
+  <script>
+  // Wait for the navbar to be loaded
+  window.addEventListener('DOMContentLoaded', function() {
+    // Give time for navbar fetch to complete
+    setTimeout(function() {
+      // Remove 'active' from all nav links
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      // Add 'active' to 'Risorse e strumenti'
+      var risorseLink = document.querySelector('.nav-link[href="Risorse.html"]');
+      if (risorseLink) risorseLink.classList.add('active');
+    }, 100); // 100ms delay is usually enough
+  });
+  
+</script>
+</body>
+</html> 
