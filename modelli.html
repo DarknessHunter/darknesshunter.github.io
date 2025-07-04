@@ -7,27 +7,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Exo', sans-serif;
-      background-color: #EFF1F0;
+    html, body, main, section {
+      background-color: #EFF1F0 !important;
       margin: 0;
       padding: 0;
     }
     .aligned-section {
-      max-width: 800px;
-      margin-top: 0;
-      margin-left: 545px;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 315px;
+      padding-right: 40px;
+      background: #EFF1F0;
+      box-sizing: border-box;
+      text-align: left;
     }
     .section-title-brief {
       width: 100%;
       text-align: left;
-      font-size: 45px;
+      font-size: 41px;
       font-weight: 700;
-      margin-top: 70px;
+      margin-top: 40px;
       margin-bottom: 70px;
       color: #000;
       letter-spacing: -2px;
@@ -38,26 +37,26 @@
 	 .section-title-brief1 {
       width: 100%;
       text-align: left;
-      font-size: 45px;
+      font-size: 37px;
       font-weight: 700;
       color: #000;
       letter-spacing: -2px;
       line-height: 1.05;
-	        margin-bottom: 70px;
+	    margin-bottom: 60px;
 
     }
     .subtitle-brief {
       font-size: 18px;
 	  font-weight: 300;
       color: #222;
-      margin-bottom: 80px;
+      margin-bottom: 140px;
       max-width: 100%;
 	  margin-left: 0;
     }
     .main-section-title {
-      font-size: 45px;
+      font-size: 37px;
       font-weight: 500;
-      margin-bottom: 18px;
+      margin-bottom: 1px;
       color: #111;
       line-height: 1.15;
       margin-top: 70px;
@@ -71,27 +70,22 @@
       margin-top: 0;
     }
     .main-section-content {
-      font-size: 27px;
-	  font-weight: 400;
+      font-size: 22px;
+	  font-weight: 600;
 	  margin-left:0;
       color: #222;
       max-width: 100%;
-	  margin-bottom:10px;
     }
     .main-section-list {
-	  list-style: none;
-
-      font-size: 27px;
-	  	  font-weight: 400;
-
+	    list-style: none;
+      font-size: 22px;
+	  	font-weight: 100;
       color: #222;
-      margin-bottom: 140px;
+      margin-bottom: 120px;
       margin-left: 0;
       max-width: 100%;
     }
-    .main-section-list li {
-      margin-bottom: 10px;
-    }
+
     .external-link {
       color: #111;
       font-weight: 500;
@@ -107,15 +101,24 @@
       font-size: 0.9em;
     }
     @media (max-width: 1200px) {
+      html, body, main, section {
+        background-color: #fff !important;
+      }
       .aligned-section {
         margin-left: 60px;
+        background-color: #fff !important;
       }
     }
     @media (max-width: 900px) {
+      html, body, main, section {
+        background-color: #fff !important;
+      }
       .aligned-section {
         padding-left: 37px;
+        background-color: #ffffff;
         margin-left: 0;
       }
+
       .section-title-brief {
         font-size: 39px;
 		font-weight: 700;
@@ -159,15 +162,22 @@
     margin-left: 4px;
   }
 }
-    }
+  
     @media (max-width: 600px) {
+      html, body, main, section {
+        background-color: #fff !important;
+      }
       .aligned-section {
+        background-color: #fff;
         padding-left: 37px;
+        padding-right: 37px;
         margin-left: 0;
-		padding-right:37px;
+        margin-right: 0;
+        width: 100%;
+        box-sizing: border-box;
       }
       .section-title-brief {
-       font-size: 39px;
+       font-size: 35px;
 		font-weight: 700;
        margin-top: 34px;
         margin-bottom: 21px;
@@ -180,24 +190,28 @@
       .main-section-subtitle {
         font-size: 18px;
       }
-      .main-section-content, .main-section-list {
-        font-size: 21px;
-		 font-weight: 300; /* 300 is Light for Exo */
-        margin-bottom: 3px;
+      .main-section-content{ 
+        font-size: 20px;
+		 font-weight: 400; /* 300 is Light for Exo */
+        margin-bottom: 5px;
+      }
+      .main-section-list{
+        margin-bottom:100px;
       }
       .subtitle-brief,
       .section-title-brief1 {
         margin-left: 0 !important;
         padding-left: 0 !important;
 				margin-bottom:21px;
+        font-weight: 600;
+          
 				
 
       }
 	  
 	.external-link {
-    font-size: 21px;
-    font-weight: 300;
-    padding: 8px 0;
+    font-size: 19px;
+    font-weight: 400;
     display: inline-block;
   }
   .external-link i {
@@ -206,6 +220,25 @@
   }
 }
 
+.main-section-content-mobile {
+  display: none;
+}
+@media (max-width: 600px) {
+  .main-section-content-desktop {
+    display: none !important;
+  }
+  .main-section-content-mobile {
+    display: block !important;
+  }
+  .main-section-mobile-gap {
+    display: block;
+    margin-bottom: 22px;
+  }
+  .main-section-mobile-gap-2 {
+    display: block;
+    margin-bottom: 0;
+  }
+}
     
   </style>
 </head>
