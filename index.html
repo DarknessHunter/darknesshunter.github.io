@@ -34,9 +34,12 @@
         activeLinkFound = true;
       }
     });
-    if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('index.html'))) {
-          const homeLink = document.querySelector('a[href="homepage.html"]');
-      if (homeLink) homeLink.classList.add('active');
+   // If no link matched and we're at root, activate Home
+    if (!activeLinkFound && (currentPage.endsWith('/') || currentPage.endsWith('/index.html'))) {
+      const homeLink = document.querySelector('.nav-link[href="index.html"]');
+      if (homeLink) {
+        homeLink.classList.add('active');
+      }
     }
 	// --- RISORSE SUBMENU LOGIC FOR MOBILE ---
     var risorseToggle = document.getElementById('sidebar-risorse-toggle');
