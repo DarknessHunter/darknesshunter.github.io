@@ -192,6 +192,19 @@
           const homeLink = document.querySelector('a[href="homepage.html"]');
           if (homeLink) homeLink.classList.add('active');
         }
+        // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
+    if (risorseToggle) {
+      risorseToggle.addEventListener('click', function(e) {
+        if (e.target.classList.contains('sidebar-link')) {
+          e.preventDefault();
+          var submenu = risorseToggle.querySelector('.sidebar-submenu');
+          if (submenu) {
+            submenu.classList.toggle('open');
+          }
+        }
+      });
+    }
         // --- MOBILE SIDEBAR LOGIC ---
         const sidebar = document.querySelector('.mobile-sidebar');
         const overlay = document.querySelector('.mobile-sidebar-overlay');
@@ -239,12 +252,12 @@
               </ul>
               <h3 class="risorse-section-subtitle">Riferimenti e linee guida</h3>
               <ul class="risorse-section-list">
-                <li><a class="risorse-link-interno" href="#">Riproducibilità & Robustezza</a></li>
-                <li><a class="risorse-link-interno" href="#">Allineamento e fairness</a></li>
-                <li><a class="risorse-link-interno" href="#">Trasparenza sui dati</a></li>
-                <li><a class="risorse-link-interno" href="#">Trasparenza sui modelli</a></li>
-                <li><a class="risorse-link-interno" href="#">Hybrid Human-AI</a></li>
-                <li><a class="risorse-link-interno" href="#">Dati Open e FAIR</a></li>
+                <li><a class="risorse-link-interno" href="riproducibilita-robustezza.html">Riproducibilità & Robustezza</a></li>
+                <li><a class="risorse-link-interno" href="allineamento.html">Allineamento e fairness</a></li>
+                <li><a class="risorse-link-interno" href="Trasparenza.html">Trasparenza sui dati</a></li>
+                <li><a class="risorse-link-interno" href="modelli.html">Trasparenza sui modelli</a></li>
+                <li><a class="risorse-link-interno" href="human.html">Hybrid Human-AI</a></li>
+                <li><a class="risorse-link-interno" href="dopen.html">Dati Open e FAIR</a></li>
               </ul>
               <h3 class="risorse-section-subtitle">Contatti & Consulenza</h3>
               <ul class="risorse-section-list">
