@@ -671,6 +671,19 @@
           const homeLink = document.querySelector('a[href="homepage.html"]');
           if (homeLink) homeLink.classList.add('active');
         }
+        // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
+    if (risorseToggle) {
+      risorseToggle.addEventListener('click', function(e) {
+        if (e.target.classList.contains('sidebar-link')) {
+          e.preventDefault();
+          var submenu = risorseToggle.querySelector('.sidebar-submenu');
+          if (submenu) {
+            submenu.classList.toggle('open');
+          }
+        }
+      });
+    }
         // --- MOBILE SIDEBAR LOGIC ---
         const sidebar = document.querySelector('.mobile-sidebar');
         const overlay = document.querySelector('.mobile-sidebar-overlay');
