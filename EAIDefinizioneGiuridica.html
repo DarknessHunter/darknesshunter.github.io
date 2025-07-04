@@ -926,6 +926,19 @@
           });
         }
       });
+  // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
+    if (risorseToggle) {
+      risorseToggle.addEventListener('click', function(e) {
+        if (e.target.classList.contains('sidebar-link')) {
+          e.preventDefault();
+          var submenu = risorseToggle.querySelector('.sidebar-submenu');
+          if (submenu) {
+            submenu.classList.toggle('open');
+          }
+        }
+      });
+    }
       // --- mobile slider logic ---
       function initializeSlider(container) {
         const track = container.querySelector('.slider-track');
