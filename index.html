@@ -38,6 +38,19 @@
           const homeLink = document.querySelector('a[href="homepage.html"]');
       if (homeLink) homeLink.classList.add('active');
     }
+	// --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
+    if (risorseToggle) {
+      risorseToggle.addEventListener('click', function(e) {
+        if (e.target.classList.contains('sidebar-link')) {
+          e.preventDefault();
+          var submenu = risorseToggle.querySelector('.sidebar-submenu');
+          if (submenu) {
+            submenu.classList.toggle('open');
+          }
+        }
+      });
+    }
     // --- MOBILE SIDEBAR LOGIC ---
     const sidebar = document.querySelector('.mobile-sidebar');
     const overlay = document.querySelector('.mobile-sidebar-overlay');
@@ -68,19 +81,6 @@
     });
         }
       });
-  // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
-    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
-    if (risorseToggle) {
-      risorseToggle.addEventListener('click', function(e) {
-        if (e.target.classList.contains('sidebar-link')) {
-          e.preventDefault();
-          var submenu = risorseToggle.querySelector('.sidebar-submenu');
-          if (submenu) {
-            submenu.classList.toggle('open');
-          }
-        }
-      });
-    }
       // --- mobile slider logic ---
       document.addEventListener('DOMContentLoaded', function() {
         function setupDefinitionsSlider() {
@@ -150,7 +150,7 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-        background-image: url(images/IMG_Tavoladisegno1.png);
+        background-image: url('images/IMG_Tavola disegno 1.png');
         background-size: cover;
         background-position: center;
         filter: brightness(70%);
