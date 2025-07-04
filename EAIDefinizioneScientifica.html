@@ -1000,8 +1000,15 @@
           document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeSidebar();
           });
+          // --- Mark 'AI Etica' as active for this page only ---
+        var aiEticaLink = document.querySelector('.nav-link[href="ai-etica.html"]');
+        if (aiEticaLink) {
+          aiEticaLink.classList.add('active');
+        }
         }
       });
+        
+    
   // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
     var risorseToggle = document.getElementById('sidebar-risorse-toggle');
     if (risorseToggle) {
