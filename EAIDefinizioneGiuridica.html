@@ -924,6 +924,11 @@
           document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeSidebar();
           });
+           // --- Mark 'AI Etica' as active for this page only ---
+        var aiEticaLink = document.querySelector('.nav-link[href="ai-etica.html"]');
+        if (aiEticaLink) {
+          aiEticaLink.classList.add('active');
+        }
         }
       });
   // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
@@ -988,19 +993,34 @@
                 updateSlider(i);
             });
         });
+        // Touch swipe for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50; // Minimum px for swipe
+        if (track) {
+          track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          }, { passive: true });
+
+          track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const swipeDistance = touchEndX - touchStartX;
+            if (Math.abs(swipeDistance) < swipeThreshold) return;
+            if (swipeDistance > 0) {
+              // Swipe right: previous slide
+              updateSlider((activeIndex - 1 + boxes.length) % boxes.length);
+            } else {
+              // Swipe left: next slide
+              updateSlider((activeIndex + 1) % boxes.length);
+            }
+          }, { passive: true });
+        }
     }
 
     // Inizializza tutti gli slider nella pagina
     document.querySelectorAll('.slider-container').forEach(initializeSlider);
-  </script>
-<div id="footer-placeholder"></div>
-  <script>
-    // Carica il footer
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      });
+
+  
   </script>
 </body>
 </html>
