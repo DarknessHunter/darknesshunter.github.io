@@ -532,9 +532,14 @@
             max-width: 100%;
         }
         
-        .ai-etica-intro, .ai-etica-note {
+        .ai-etica-intro {
             padding-left: 0;
             font-size: 1.2rem;
+        }
+        
+        .ai-etica-note {
+            padding-left: 0;
+            font-size: 1rem;
         }
         
         .definitions-section {
@@ -818,29 +823,20 @@
                         </div>
                         <div class="slider-box">
                             <!-- Contenuto della prima slide -->
-                            <h4>Utilitarismo</h4>
-                            <p>Questa corrente pone l’accento sulle conseguenze delle azioni e mira a massimizzare il
-                                beneficio collettivo.
-                                Nell’IA, ciò si traduce nel creare tecnologie che migliorino la qualità della vita per il
-                                maggior numero di persone, minimizzando i danni e i rischi associati.
+                            <h4>Etica Deontologica</h4>
+                            <p>Basata su leggi morali universali, questa prospettiva si focalizza su ciò che è giusto fare, 
+                                indipendentemente dalle conseguenze. Secondo questa visione, i sistemi AI devono 
+                                rispettare regole etiche predefinite, come le Tre Leggi della Robotica di Asimov, per 
+                                garantire la sicurezza e il benessere umano.
                             </p>
                         </div>
                         <div class="slider-box">
                             <!-- Contenuto della prima slide -->
-                            <h4>Utilitarismo</h4>
-                            <p>Questa corrente pone l’accento sulle conseguenze delle azioni e mira a massimizzare il
-                                beneficio collettivo.
-                                Nell’IA, ciò si traduce nel creare tecnologie che migliorino la qualità della vita per il
-                                maggior numero di persone, minimizzando i danni e i rischi associati.
-                            </p>
-                        </div>
-                        <div class="slider-box">
-                            <!-- Contenuto della prima slide -->
-                            <h4>Utilitarismo</h4>
-                            <p>Questa corrente pone l’accento sulle conseguenze delle azioni e mira a massimizzare il
-                                beneficio collettivo.
-                                Nell’IA, ciò si traduce nel creare tecnologie che migliorino la qualità della vita per il
-                                maggior numero di persone, minimizzando i danni e i rischi associati.
+                            <h4>Etica delle Virtù</h4>
+                            <p>Focalizzata sulla saggezza pratica (phronesis), questa visione si concentra sullo 
+                                sviluppo delle qualità morali necessarie per affrontare situazioni specifiche. L'AI dovrebbe 
+                                emulare virtù come giustizia, equità e cooperazione, adattandosi alle circostanze per 
+                                promuovere il benessere sociale.
                             </p>
                         </div>
                     </div>
@@ -850,7 +846,6 @@
                 </div>
                 <div class="slider-indicators">
                     <span class="slider-dot active"></span>
-                    <span class="slider-dot"></span>
                     <span class="slider-dot"></span>
                     <span class="slider-dot"></span>
                 </div>
@@ -863,10 +858,20 @@
             </a>
             
         </div>
+
+        
     </section>
+
+    <div id="footer-placeholder"></div>
 </main>
 
 <script>
+    // Carica il footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
     // Carica la navbar
     fetch('navbar.html')
       .then(response => response.text())
