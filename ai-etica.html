@@ -397,13 +397,18 @@
             max-width: 100%;
         }
         
-        .ai-etica-intro, .ai-etica-note {
+        .ai-etica-intro {
             padding-left: 0;
             font-size: 1.2rem;
         }
         
+        .ai-etica-note {
+            padding-left: 0;
+            font-size: 1rem;
+        }
+        
         .definitions-section {
-            padding: 0 10px;
+            padding: 0 0;
             max-width: 100%;
         }
         
@@ -415,10 +420,9 @@
         }
         
         .def-card {
-            min-width: 350px;
             margin-left: -15px;
         }
-            */
+
         
         .def-card h4 {
             font-size: 1rem;
@@ -671,7 +675,7 @@
           const homeLink = document.querySelector('a[href="homepage.html"]');
           if (homeLink) homeLink.classList.add('active');
         }
-		// --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+        // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
     var risorseToggle = document.getElementById('sidebar-risorse-toggle');
     if (risorseToggle) {
       risorseToggle.addEventListener('click', function(e) {
@@ -792,6 +796,14 @@
         window.addEventListener('resize', setupDefinitionsSlider);
     });
   </script>
-
+<div id="footer-placeholder"></div>
+  <script>
+    // Carica il footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
 </body>
 </html>
