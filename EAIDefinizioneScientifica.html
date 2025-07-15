@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -774,37 +775,64 @@
             <div class="page-contents-box">
                 <h3 class="in-this-page-title">In questa pagina</h3>
                 <ul class="page-contents-list">
-                    <li><a href="#" class="current-page-link">EAI: Definizione Filosofica</a></li>
-                    <li><a href="#">Orientamenti Etici</a></li>
+                    <li><a href="#" class="current-page-link">EAI: Definizione Scientifica</a></li>
+                    <li><a href="#">Origini del Bias</a></li>
+                    <li><a href="#">Riflessione nei modelli</a></li>
+                    <li><a href="#">Soluzioni possibili</a></li>
                 </ul>
             </div>
 
             <div class="article-section">
-                <h3 class="article-heading">EAI: Definizione Filosofica</h3>
+                <h3 class="article-heading">EAI: Definizione Scientifica</h3>
                 
-                <img src="images/IMG-06.png" alt="Due mani sotto un dispenser automatico">
+                <img src=images/IMG-04.png alt="Due mani sotto un dispenser automatico">
                 
                 <div class="ai-etica-intro">
-                    L’etica filosofica dell’Intelligenza Artificiale offre una
-                    bussola morale per orientarsi tra le complesse
-                    implicazioni delle nuove tecnologie. Attraverso diverse
-                    tradizioni del pensiero, la filosofia aiuta a riflettere su
-                    come l’IA possa agire in modo giusto, responsabile e
-                    umano.
+                    I bias nei sistemi di intelligenza artificiale nascono da
+                    pregiudizi insiti nei dati e nei processi di sviluppo. Questi
+                    errori possono riflettere e amplificare disuguaglianze
+                    sociali, rendendo essenziale comprendere le loro origini e
+                    adottare soluzioni per mitigarli.
                 </div>
 
+                <h3 class="article-heading">Origini del Bias</h3>
+                
                 <div class="ai-etica-note">
-                    L’etica dell’Intelligenza Artificiale (IA) viene affrontata dalla filosofia attraverso
-                    tre grandi tradizioni del pensiero etico, ognuna delle quali offre un approccio
-                    unico per definire i principi morali che dovrebbero guidare lo sviluppo e l'uso
-                    delle tecnologie intelligenti.
-                    <br></br>
-                    Questi orientamenti etici sono cruciali per affrontare le nuove sfide poste
-                    dall’IA, garantendo che le decisioni prese da sistemi intelligenti siano allineate
-                    ai valori umani e promuovano una società più giusta e inclusiva.
+                    I bias nell'Intelligenza Artificiale nascono principalmente durante la fase di raccolta e
+                    preparazione dei dati, riflettendo pregiudizi culturali e sociali esistenti che poi si
+                    propagano nei modelli di Machine Learning   
                 </div>
+            
+            <div class="double-card-section">
+                <div class="double-card">
+                    <h4>Raccolta dei Dati</h4>
+                    <p>
+                        I dati sono spesso raccolti in base a categorie
+                        culturali e prototipi mentali che non
+                        rappresentano l'intera popolazione.<br><br>
+                        Esempio: dataset fotografici che
+                        sovrarappresentano etnie specifiche rispetto
+                        ad altre.
+                    </p>
+                </div>
+                <div class="double-card">
+                    <h4>Annotazione dei Dati</h4>
+                    <p>
+                        Gli annotatori, influenzati dal loro contesto
+                        culturale, introducono pregiudizi impliciti.<br><br>
+                        Esempio: Open Images Dataset, criticato per la
+                        scarsa rappresentatività geografica e
+                        culturale.
+                    </p>
+                </div>
+            </div>
 
-                <h3 class="article-heading">Orientamenti Etici</h3>
+            <h3 class="article-heading">Riflessione nei Modelli</h3>
+                
+            <div class="ai-etica-note">
+                Questi bias si trasferiscono nei modelli, generando risultati distorti che possono
+                perpetuare o amplificare disuguaglianze sociali esistenti.
+            </div>
 
             <div class="slider-container">
                 <div class="slider-section">
@@ -814,29 +842,34 @@
                     <div class="slider-track">
                         <div class="slider-box active">
                             <!-- Contenuto della prima slide -->
-                            <h4>Utilitarismo</h4>
-                            <p>Questa corrente pone l’accento sulle conseguenze delle azioni e mira a massimizzare il
-                                beneficio collettivo.
-                                Nell’IA, ciò si traduce nel creare tecnologie che migliorino la qualità della vita per il
-                                maggior numero di persone, minimizzando i danni e i rischi associati.
+                            <h4>Bias di Genere</h4>
+                            <p>Sistemi di traduzione automatica che introducono stereotipi di genere traducendo
+                                lingue neutre.
+                                <br></br>
+                                Esempi applicativi:                       <br></br>
+                                • "doctor" diventa "dottore"        <br></br>
+                                • "nurse" diventa "infermiera".
                             </p>
                         </div>
                         <div class="slider-box">
                             <!-- Contenuto della prima slide -->
-                            <h4>Etica Deontologica</h4>
-                            <p>Basata su leggi morali universali, questa prospettiva si focalizza su ciò che è giusto fare, 
-                                indipendentemente dalle conseguenze. Secondo questa visione, i sistemi AI devono 
-                                rispettare regole etiche predefinite, come le Tre Leggi della Robotica di Asimov, per 
-                                garantire la sicurezza e il benessere umano.
+                            <h4>Bias Etnici</h4>
+                            <p>Il sistema COMPAS utilizzato per la giustizia predittiva negli USA, accusato di sovrastimare 
+                                la recidiva per i detenuti di colore rispetto ai bianchi. 
                             </p>
                         </div>
                         <div class="slider-box">
                             <!-- Contenuto della prima slide -->
-                            <h4>Etica delle Virtù</h4>
-                            <p>Focalizzata sulla saggezza pratica (phronesis), questa visione si concentra sullo 
-                                sviluppo delle qualità morali necessarie per affrontare situazioni specifiche. L'AI dovrebbe 
-                                emulare virtù come giustizia, equità e cooperazione, adattandosi alle circostanze per 
-                                promuovere il benessere sociale.
+                            <h4>Selezione del Personale</h4>
+                            <p>Il modello di Amazon per il recruiting penalizzava sistematicamente le donne a causa
+                                 della predominanza storica di candidati maschi nei dati di riferimento.
+                            </p>
+                        </div>
+                        <div class="slider-box">
+                            <!-- Contenuto della prima slide -->
+                            <h4>Diagnosi Medica</h4>
+                            <p>Modelli diagnostici che falliscono nel riconoscere melanomi su pelle scura, 
+                                poiché allenati su immagini prevalentemente di pelle chiara.
                             </p>
                         </div>
                     </div>
@@ -848,9 +881,50 @@
                     <span class="slider-dot active"></span>
                     <span class="slider-dot"></span>
                     <span class="slider-dot"></span>
+                    <span class="slider-dot"></span>
                 </div>
             </div>
 
+            <h3 class="article-heading">Soluzioni Possibili</h3>
+
+            <div class="ai-etica-note">
+                Esistono diverse strategie e approcci per mitigare i bias nell'intelligenza artificiale e
+                creare sistemi più equi e rappresentativi.
+            </div>
+
+                <div class="definitions-section">
+                    <div class="definitions-row">
+                        <div class="def-card">
+                            <h4>Data Augmentation</h4>
+                            <p>Aggiunta di dati sintetici per bilanciare la
+                                rappresentatività e colmare le lacune nei
+                                dataset esistenti.
+                            </p>
+                        </div>
+                        <div class="def-card">
+                            <h4>Annotazione Consapevole</h4>
+                            <p>Training specifico per ridurre i bias degli
+                                annotatori e aumentare la
+                                consapevolezza culturale.
+                            </p>
+                        </div>
+                        <div class="def-card">
+                            <h4>Fairness e Accountability</h4>
+                            <p>Applicazione di framework come FAT
+                                (Fairness, Accountability, Transparency)
+                                per garantire equità e trasparenza nei
+                                modelli.
+                            </p>
+                        </div>
+                        <div class="def-card">
+                            <h4>Valutazione e Monitoraggio:</h4>
+                            <p>Utilizzo di strumenti come l'AI Act
+                                Compliance Checker per identificare e
+                                mitigare i bias in modo continuo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
             
             <a href="#top" class="scroll-to-top" aria-label="Torna all'inizio della pagina">
@@ -858,10 +932,7 @@
             </a>
             
         </div>
-
-        
     </section>
-
     <div id="footer-placeholder"></div>
 </main>
 
