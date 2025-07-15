@@ -642,6 +642,35 @@
             </a>
             
         </div>
+
+        <!-- page navigation at the bottom -->
+        <div class="page-navigation">
+            <a href="ai-in-breve.html" class="nav-button">◄ Precedente</a>
+            <a href="perchè-ai-etica.html" class="nav-button">Successiva ►</a>
+        </div>
+
+        <style>
+            .page-navigation {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 70px;
+                padding: 0 20px;
+            }
+            .nav-button {
+                background: #f0f0f0;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+            .nav-button:hover {
+                background: #cccccc;
+                color: #1c1c1c;
+            }
+        </style>
+        <!-- page navigation at the bottom END -->
     </section>
 </main>
 
@@ -798,6 +827,12 @@
   </script>
 <div id="footer-placeholder"></div>
   <script>
+    document.querySelectorAll('.scroll-to-top').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
     // Carica il footer
     fetch('footer.html')
       .then(response => response.text())

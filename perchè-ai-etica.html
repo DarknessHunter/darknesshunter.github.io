@@ -194,6 +194,42 @@
         margin-bottom: 22px;
       }
     }
+    .scroll-to-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 54px;
+      height: 54px;
+      background: #f3f3f3;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-decoration: none;
+      z-index: 1000;
+      transition: background 0.2s;
+  }
+  .scroll-to-top:hover {
+      background: #e0e0e0;
+  }
+  .scroll-arrow {
+      font-size: 2.2rem;
+      color: #222;
+      line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+      .scroll-to-top {
+          width: 44px;
+          height: 44px;
+          right: 12px;
+          bottom: 12px;
+      }
+      .scroll-arrow {
+          font-size: 1.5rem;
+      }
+  }
   </style>
 </head>
 <body>
@@ -333,10 +369,50 @@ Solo così l'AI potrà davvero servire il benessere collettivo, senza<span class
           </div>
         </div>
       </div>
+
+      <a href="#top" class="scroll-to-top" aria-label="Torna all'inizio della pagina">
+        <span class="scroll-arrow">&#8679;</span>
+      </a>
+
+      <!-- page navigation at the bottom -->
+        <div class="page-navigation">
+            <a href="ai-etica.html" class="nav-button">◄ Precedente</a>
+            <a href="Risorse.html" class="nav-button">Successiva ►</a>
+        </div>
+
+        <style>
+            .page-navigation {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 70px;
+                padding: 0 20px !important;;
+            }
+            .nav-button {
+                background: #f0f0f0;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+            .nav-button:hover {
+                background: #cccccc;
+                color: #1c1c1c;
+            }
+        </style>
+        <!-- page navigation at the bottom END -->
     </section>
   </main>
   <div id="footer-placeholder"></div>
   <script>
+    // scroll to top button 
+    document.querySelectorAll('.scroll-to-top').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  });
     // Carica il footer
     fetch('footer.html')
       .then(response => response.text())

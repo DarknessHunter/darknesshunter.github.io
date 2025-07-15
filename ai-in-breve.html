@@ -962,6 +962,36 @@
             <a href="#top" class="scroll-to-top" aria-label="Torna all'inizio della pagina">
                 <span class="scroll-arrow">&#8679;</span>
             </a>
+
+            <!-- page navigation at the bottom -->
+            <div class="page-navigation">
+                <a href="index.html" class="nav-button">◄ Precedente</a>
+                <a href="ai-etica.html" class="nav-button">Successiva ►</a>
+            </div>
+
+            <style>
+                .page-navigation {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 70px;
+                    padding: 0 20px;
+                }
+                .nav-button {
+                    background: #f0f0f0;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    color: #333;
+                    font-weight: bold;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+                .nav-button:hover {
+                    background: #cccccc;
+                    color: #1c1c1c;
+                }
+            </style>
+            <!-- page navigation at the bottom END -->
+
             <script>
             // Script unico per entrambi gli slider
             (function() {

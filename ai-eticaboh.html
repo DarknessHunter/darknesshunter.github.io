@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Etica</title>
+  <meta name="viewport" content="width=1215, initial-scale=1.0, maximum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Exo', Arial, sans-serif;
+      background: #EFF1F0;
+      margin: 0;
+      color: #222;
+    }
+    </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <main class="ai-etica-main">
+    <h1 class="section-title">Ai etica</h1>
+    <nav class="page-contents-box" aria-label="In questa pagina">
+      <div class="in-this-page-title">In questa pagina</div>
+      <ul class="page-contents-list">
+        <li><a href="#etica-ai" class="current-page-link">Intelligenza Artificiale etica</a></li>
+        <li><a href="#definizioni-ai">Principali definizioni di AI</a></li>
+      </ul>
+    </nav>
+    <section id="etica-ai" class="article-section">
+      <h2 class="article-heading">Intelligenza Artificiale etica</h2>
+      <img src="images/IMG-03.png" alt="Due mani sotto un dispenser automatico">
+      <div class="ai-etica-intro">
+        Un’introduzione multidisciplinare all’etica dell’Intelligenza Artificiale: prospettive scientifiche, giuridiche e filosofiche per comprendere e guidare lo sviluppo dei sistemi intelligenti.
+      </div>
+      <div class="ai-etica-note">
+        L’etica dell’IA è un tema complesso che richiede un approccio multidisciplinare per affrontare le sfide emergenti. Diverse prospettive – scientifiche, filosofiche e giuridiche – offrono chiavi di lettura fondamentali per definire i principi etici applicabili ai sistemi intelligenti.
+      </div>
+    </section>
+    <section id="definizioni-ai" class="definitions-section">
+      <h2 class="definitions-title">Principali definizioni di AI</h2>
+      <div class="definitions-row">
+        <div class="def-card">
+          <h4>EAI: Definizione Scientifica</h4>
+          <p>L’IA si riferisce a dispositivi o programmi capaci di apprendere, ragionare e risolvere problemi come e oltre l’uomo.</p>
+          <a href="#">Scopri di più</a>
+        </div>
+        <div class="def-card">
+          <h4>EAI: Definizione Giuridica</h4>
+          <p>L’IA viene definita come normativa dall’AI Act e da altre regolamentazioni come il GDPR e l’OEPP.</p>
+          <a href="#">Scopri di più</a>
+        </div>
+        <div class="def-card">
+          <h4>EAI: Definizione Filosofica</h4>
+          <p>Esiste dall’antichità l’idea di “macchine pensanti”. Oggi la filosofia riflette su autonomia, responsabilità e impatto sociale dell’IA.</p>
+          <a href="#">Scopri di più</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    // Carica la navbar
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+
+        // Evidenzia il link attivo
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = decodeURIComponent(window.location.pathname.split('/').pop());
+        navLinks.forEach(link => link.classList.remove('active'));
+        let activeLinkFound = false;
+        navLinks.forEach(link => {
+          const linkHref = decodeURIComponent(link.getAttribute('href'));
+          if (linkHref === currentPath) {
+            link.classList.add('active');
+            activeLinkFound = true;
+          }
+        });
+        if (!activeLinkFound && (currentPath === '' || currentPath === 'index.html')) {
+          const homeLink = document.querySelector('a[href="index.html"]');
+          if (homeLink) homeLink.classList.add('active');
+        }
+
+        // --- MOBILE SIDEBAR LOGIC ---
+        const sidebar = document.querySelector('.mobile-sidebar');
+        const overlay = document.querySelector('.mobile-sidebar-overlay');
+        const menuButton = document.querySelector('.mobile-menu-button');
+        function openSidebar() {
+          sidebar.style.display = 'flex';
+          overlay.style.display = 'block';
+          menuButton.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+          sidebar.style.display = 'none';
+          overlay.style.display = 'none';
+          menuButton.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        if (menuButton && sidebar && overlay) {
+          menuButton.addEventListener('click', function() {
+            if (sidebar.style.display === 'flex') {
+              closeSidebar();
+            } else {
+              openSidebar();
+            }
+          });
+          overlay.addEventListener('click', closeSidebar);
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSidebar();
+          });
+        }
+      });
+  </script>
+</body>
+</html>
