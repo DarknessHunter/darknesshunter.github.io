@@ -274,15 +274,17 @@
       top: 72px; /* 70px top-bar + 2px riga grigia */
       width: 340px;
       max-width: 90vw;
-      height: calc(120vh - 72px);
+      height: calc(100vh - 72px); /* FIX: was 120vh, now 100vh for proper scrolling */
       background: #fff;
       z-index: 2100;
       box-shadow: -2px 0 16px rgba(0,0,0,0.15);
       display: none;
       flex-direction: column;
       animation: slideInSidebar 0.3s;
-	  overflow-y: auto;
-  	  -webkit-overflow-scrolling: touch;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      overscroll-behavior: contain;
     }
     @keyframes slideInSidebar {
       from { right: -350px; }
@@ -429,12 +431,15 @@
     }
     @media (max-width: 1024px) {
       .sidebar-submenu {
-	    list-style: none;
-
+        list-style: none;
         padding-left: 18px;
         background: none;
-       /* border-left: 2px solid #ccc; */
+        /* border-left: 2px solid #ccc; */
         display: none;
+        max-height: 60vh;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
       }
       .sidebar-submenu.open {
         display: block;
@@ -477,158 +482,27 @@
       <li class="sidebar-item sidebar-has-submenu" id="sidebar-risorse-toggle">
         <span class="sidebar-link">Risorse e Strumenti</span>
         <ul class="sidebar-submenu">
-		<a href="Risorse.html" style="text-decoration: none;">
-  <p style="
-    font-family: 'Exo', sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 21px;
-    margin: 0;
-    margin-top: 20px;
-    margin-left: -18px;
-    color: black; /* adjust if needed */
-    cursor: pointer;
-  ">
-    Risorse e Strumenti Metodologici
-  </p>
-</a>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top : 10px ;
-  margin-left: -18px;
-">
-Corsi & Tutorial
-</p>
-
-          <li style="padding-left: 1px;">
-  <a class="risorse-link-esterno" href="https://www.raiseliguria.it/" target="_blank" rel="noopener">
-    Corsi di formazione alla cittadinanza digitale RAISE
-    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-  </a>
-</li>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top:10px;
-  margin-left: -18px;
-">
-Riferimenti e Linee Guida
-
-</p>
- <li style="padding-left: 1px;">
-  <a class="risorse-link-interno" href="riproducibilita-robustezza.html">Riproducibilità & Robustezza</a>
-</li>
-<li style="padding-left: 1px;">
-  <a class="risorse-link-interno" href="allineamento.html">Allineamento e fairness</a>
-</li>
-<li style="padding-left: 1px;">
-  <a class="risorse-link-interno" href="Trasparenza.html">Trasparenza sui dati</a>
-</li>
-<li style="padding-left: 1px;">
-  <a class="risorse-link-interno" href="modelli.html">Trasparenza sui modelli</a>
-</li>
-<li style="padding-left: 1px;">
-  <a class="risorse-link-interno" href="human.html">Hybrid Human-AI</a>
-</li>
-<li style="padding-left: 1px;">
-  <a class="risorse-link-interno" href="dopen.html">Dati Open e FAIR</a>
-</li>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top:10px;
-  margin-left: -18px;
-">
-Contatti & Consulenza
-
-</p>
-<p style= " padding-left: 1px;
-">per inquiry scrivi a <br> segretaria@raiseliguria.it</p>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top:10px;
-  margin-left: -18px;
-">
-Risorse e strumenti etico-legali
-</p>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top:10px;
-  margin-left: -18px;
-">
-Corsi & Tutorial
-</p>
-<li style="padding-left: 1px;">
-  <a class="risorse-link-esterno" href="https://www.raiseliguria.it/" target="_blank" rel="noopener">
-    Corsi di formazione alla cittadinanza digitale RAISE
-    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-  </a>
-</li>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top:10px;
-  margin-left: -18px;
-">
-Riferimenti e linee guida
-</p>
-  <li style="padding-left: 1px;">
-  <a class="risorse-link-esterno" href="https://ai-act-explorer.eu/" target="_blank" >
-   Ai act explorer
-    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-  </a>
-</li>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top:10px;
-  margin-left: -18px;
-">
-Checklist </p>
- <li style="padding-left: 1px;">
-  <a class="risorse-link-esterno" href="https://ai-act-checklist.eu/" target="_blank" >
-   Ai act checklist
-    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-  </a>
-</li>
-<p style="
-  font-family: 'Exo', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  margin: 0;
-  margin-top:10px;
-  margin-left: -18px;
-">
-Contatti & Consulenza
-
-</p>
-<p style= " padding-left: 1px;
-">per inquiry scrivi a <br> segretaria@raiseliguria.it</p>
+          <li><a href="Risorse.html" style="text-decoration: none;"><p style="font-family: 'Exo', sans-serif; font-weight: 800; font-size: 16px; line-height: 21px; margin: 0; margin-top: 20px; margin-left: -18px; color: black; cursor: pointer;">Risorse e Strumenti Metodologici</p></a></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top : 10px ; margin-left: -18px;">Corsi & Tutorial</p></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-esterno" href="https://www.raiseliguria.it/" target="_blank" rel="noopener">Corsi di formazione alla cittadinanza digitale RAISE <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top:10px; margin-left: -18px;">Riferimenti e Linee Guida</p></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-interno" href="riproducibilita-robustezza.html">Riproducibilità & Robustezza</a></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-interno" href="allineamento.html">Allineamento e fairness</a></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-interno" href="Trasparenza.html">Trasparenza sui dati</a></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-interno" href="modelli.html">Trasparenza sui modelli</a></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-interno" href="human.html">Hybrid Human-AI</a></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-interno" href="dopen.html">Dati Open e FAIR</a></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top:10px; margin-left: -18px;">Contatti & Consulenza</p></li>
+          <li><p style="padding-left: 1px;">per inquiry scrivi a <br> segretaria@raiseliguria.it</p></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top:10px; margin-left: -18px;">Risorse e strumenti etico-legali</p></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top:10px; margin-left: -18px;">Corsi & Tutorial</p></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-esterno" href="https://www.raiseliguria.it/" target="_blank" rel="noopener">Corsi di formazione alla cittadinanza digitale RAISE <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top:10px; margin-left: -18px;">Riferimenti e linee guida</p></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-esterno" href="https://ai-act-explorer.eu/" target="_blank" >Ai act explorer <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top:10px; margin-left: -18px;">Checklist </p></li>
+          <li style="padding-left: 1px;"><a class="risorse-link-esterno" href="https://ai-act-checklist.eu/" target="_blank" >Ai act checklist <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+          <li><p style="font-family: 'Exo', sans-serif; font-weight: 600; font-size: 16px; line-height: 21px; margin: 0; margin-top:10px; margin-left: -18px;">Contatti & Consulenza</p></li>
+          <li><p style="padding-left: 1px;">per inquiry scrivi a <br> segretaria@raiseliguria.it</p></li>
         </ul>
       </li>
       <li class="sidebar-item"><a href="chi-siamo.html">Chi siamo</a></li>
