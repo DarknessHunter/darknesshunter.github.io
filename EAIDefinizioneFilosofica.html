@@ -899,6 +899,7 @@
       .then(data => {
         document.getElementById('footer-placeholder').innerHTML = data;
       });
+
     // Carica la navbar
     fetch('navbar.html')
       .then(response => response.text())
@@ -928,6 +929,38 @@
           const homeLink = document.querySelector('a[href="homepage.html"]');
           if (homeLink) homeLink.classList.add('active');
         }
+
+        // ✅ RISORSE DESKTOP DROPDOWN LOGIC
+        const navRisorseToggle = document.getElementById('nav-risorse-toggle');
+        if (navRisorseToggle) {
+          const navLink = navRisorseToggle.querySelector('.nav-link');
+          navLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navRisorseToggle.classList.toggle('open');
+          });
+
+          document.addEventListener('click', function(e) {
+            if (!navRisorseToggle.contains(e.target)) {
+              navRisorseToggle.classList.remove('open');
+            }
+          });
+        }
+
+        // ✅ RISORSE SUBMENU LOGIC FOR MOBILE
+        const sidebarRisorseToggle = document.getElementById('sidebar-risorse-toggle');
+        if (sidebarRisorseToggle) {
+          const sidebarLink = sidebarRisorseToggle.querySelector('.sidebar-link');
+          sidebarLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const submenu = sidebarRisorseToggle.querySelector('.sidebar-submenu');
+            if (submenu) {
+              submenu.classList.toggle('open');
+            }
+          });
+        }
+
         // --- MOBILE SIDEBAR LOGIC ---
         const sidebar = document.querySelector('.mobile-sidebar');
         const overlay = document.querySelector('.mobile-sidebar-overlay');
@@ -956,96 +989,88 @@
           document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeSidebar();
           });
-		   // --- Mark 'AI Etica' as active for this page only ---
-        var aiEticaLink = document.querySelector('.nav-link[href="ai-etica.html"]');
-        if (aiEticaLink) {
-          aiEticaLink.classList.add('active');
-        }
+
+          // --- Mark 'AI Etica' as active for this page only ---
+          var aiEticaLink = document.querySelector('.nav-link[href="ai-etica.html"]');
+          if (aiEticaLink) {
+            aiEticaLink.classList.add('active');
+          }
         }
       });
-      // --- mobile slider logic ---
-      function initializeSlider(container) {
-        const track = container.querySelector('.slider-track');
-        const boxes = Array.from(track.querySelectorAll('.slider-box'));
-        const leftArrow = container.querySelector('.slider-arrow.left');
-        const rightArrow = container.querySelector('.slider-arrow.right');
-        const dots = container.querySelectorAll('.slider-dot');
-        let activeIndex = boxes.findIndex(box => box.classList.contains('active'));
-        
-        if (activeIndex === -1) activeIndex = 0;
 
-        function updateSlider(newIndex) {
-            if (newIndex < 0 || newIndex >= boxes.length) return;
-            
-            // Aggiorna le slide
-            boxes.forEach((box, i) => {
-                box.classList.remove('active');
-                if (i === newIndex) {
-                    box.classList.add('active');
-                }
-            });
-            
-            // Aggiorna i punti indicatori
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === newIndex);
-            });
-            
-            activeIndex = newIndex;
-        }
+    // --- mobile slider logic ---
+    function initializeSlider(container) {
+      const track = container.querySelector('.slider-track');
+      const boxes = Array.from(track.querySelectorAll('.slider-box'));
+      const leftArrow = container.querySelector('.slider-arrow.left');
+      const rightArrow = container.querySelector('.slider-arrow.right');
+      const dots = container.querySelectorAll('.slider-dot');
+      let activeIndex = boxes.findIndex(box => box.classList.contains('active'));
+      if (activeIndex === -1) activeIndex = 0;
 
-        // Event listeners per le frecce
-        if (leftArrow) {
-            leftArrow.addEventListener('click', function() {
-                updateSlider((activeIndex - 1 + boxes.length) % boxes.length);
-            });
-        }
-        
-        if (rightArrow) {
-            rightArrow.addEventListener('click', function() {
-                updateSlider((activeIndex + 1) % boxes.length);
-            });
-        }
-        
-        // Event listeners per i punti
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', function() {
-                updateSlider(i);
-            });
+      function updateSlider(newIndex) {
+        if (newIndex < 0 || newIndex >= boxes.length) return;
+
+        boxes.forEach((box, i) => {
+          box.classList.toggle('active', i === newIndex);
         });
-		 // Touch swipe for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const swipeThreshold = 50; // Minimum px for swipe
-        if (track) {
-          track.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-          }, { passive: true });
 
-          track.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const swipeDistance = touchEndX - touchStartX;
-            if (Math.abs(swipeDistance) < swipeThreshold) return;
-            if (swipeDistance > 0) {
-              // Swipe right: previous slide
-              updateSlider((activeIndex - 1 + boxes.length) % boxes.length);
-            } else {
-              // Swipe left: next slide
-              updateSlider((activeIndex + 1) % boxes.length);
-            }
-          }, { passive: true });
-        }
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === newIndex);
+        });
+
+        activeIndex = newIndex;
+      }
+
+      if (leftArrow) {
+        leftArrow.addEventListener('click', function() {
+          updateSlider((activeIndex - 1 + boxes.length) % boxes.length);
+        });
+      }
+
+      if (rightArrow) {
+        rightArrow.addEventListener('click', function() {
+          updateSlider((activeIndex + 1) % boxes.length);
+        });
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', function() {
+          updateSlider(i);
+        });
+      });
+
+      // Touch swipe for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const swipeThreshold = 50;
+      if (track) {
+        track.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const swipeDistance = touchEndX - touchStartX;
+          if (Math.abs(swipeDistance) < swipeThreshold) return;
+          if (swipeDistance > 0) {
+            updateSlider((activeIndex - 1 + boxes.length) % boxes.length);
+          } else {
+            updateSlider((activeIndex + 1) % boxes.length);
+          }
+        }, { passive: true });
+      }
     }
 
-    // Inizializza tutti gli slider nella pagina
     document.querySelectorAll('.slider-container').forEach(initializeSlider);
 
     document.querySelectorAll('.scroll-to-top').forEach(btn => {
       btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
-  </script>
+</script>
 
 
 </body>
