@@ -320,68 +320,88 @@
             });
         }
     }
-    
+
     fetch('navbar.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
-    
-    // Evidenzia il link attivo
-    const navLinks = document.querySelectorAll('.nav-link');
-    const currentPath = decodeURIComponent(window.location.pathname.split('/').pop());
-    navLinks.forEach(link => link.classList.remove('active'));
-    let activeLinkFound = false;
-    navLinks.forEach(link => {
-      const linkHref = decodeURIComponent(link.getAttribute('href'));
-      if (linkHref === currentPath) {
-        link.classList.add('active');
-        activeLinkFound = true;
-      }
-    });
-    if (!activeLinkFound && (currentPath === '' || currentPath === 'index.html')) {
-      const homeLink = document.querySelector('a[href="index.html"]');
-      if (homeLink) homeLink.classList.add('active');
-    }
-// --- RISORSE SUBMENU LOGIC FOR MOBILE ---
-    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
-    if (risorseToggle) {
-      risorseToggle.addEventListener('click', function(e) {
-        if (e.target.classList.contains('sidebar-link')) {
-          e.preventDefault();
-          var submenu = risorseToggle.querySelector('.sidebar-submenu');
-          if (submenu) {
-            submenu.classList.toggle('open');
+
+        // Evidenzia il link attivo
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = decodeURIComponent(window.location.pathname.split('/').pop());
+        navLinks.forEach(link => link.classList.remove('active'));
+        let activeLinkFound = false;
+        navLinks.forEach(link => {
+          const linkHref = decodeURIComponent(link.getAttribute('href'));
+          if (linkHref === currentPath) {
+            link.classList.add('active');
+            activeLinkFound = true;
           }
+        });
+        if (!activeLinkFound && (currentPath === '' || currentPath === 'index.html')) {
+          const homeLink = document.querySelector('a[href="index.html"]');
+          if (homeLink) homeLink.classList.add('active');
         }
-      });
-    }
-    // --- MOBILE SIDEBAR LOGIC ---
-    const sidebar = document.querySelector('.mobile-sidebar');
-    const overlay = document.querySelector('.mobile-sidebar-overlay');
-    const menuButton = document.querySelector('.mobile-menu-button');
-    function openSidebar() {
-      sidebar.style.display = 'flex';
-      overlay.style.display = 'block';
-      menuButton.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeSidebar() {
-      sidebar.style.display = 'none';
-      overlay.style.display = 'none';
-      menuButton.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    menuButton.addEventListener('click', function() {
-      if (sidebar.style.display === 'flex') {
-        closeSidebar();
-      } else {
-        openSidebar();
-      }
-    });
-    overlay.addEventListener('click', closeSidebar);
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeSidebar();
-    });
+
+        // ✅ RISORSE DESKTOP DROPDOWN LOGIC (FIXED)
+        const navRisorseToggle = document.getElementById('nav-risorse-toggle');
+        if (navRisorseToggle) {
+          const navLink = navRisorseToggle.querySelector('.nav-link');
+          navLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navRisorseToggle.classList.toggle('open');
+          });
+
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function(e) {
+            if (!navRisorseToggle.contains(e.target)) {
+              navRisorseToggle.classList.remove('open');
+            }
+          });
+        }
+
+        // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+        var risorseToggle = document.getElementById('sidebar-risorse-toggle');
+        if (risorseToggle) {
+          risorseToggle.addEventListener('click', function(e) {
+            if (e.target.classList.contains('sidebar-link')) {
+              e.preventDefault();
+              var submenu = risorseToggle.querySelector('.sidebar-submenu');
+              if (submenu) {
+                submenu.classList.toggle('open');
+              }
+            }
+          });
+        }
+
+        // --- MOBILE SIDEBAR LOGIC ---
+        const sidebar = document.querySelector('.mobile-sidebar');
+        const overlay = document.querySelector('.mobile-sidebar-overlay');
+        const menuButton = document.querySelector('.mobile-menu-button');
+        function openSidebar() {
+          sidebar.style.display = 'flex';
+          overlay.style.display = 'block';
+          menuButton.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+          sidebar.style.display = 'none';
+          overlay.style.display = 'none';
+          menuButton.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        menuButton.addEventListener('click', function() {
+          if (sidebar.style.display === 'flex') {
+            closeSidebar();
+          } else {
+            openSidebar();
+          }
+        });
+        overlay.addEventListener('click', closeSidebar);
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') closeSidebar();
+        });
     });
 </script>
   <main>
@@ -430,8 +450,8 @@ Solo così l'AI potrà davvero servire il benessere collettivo, senza<span class
 
       <!-- page navigation at the bottom -->
         <div class="page-navigation">
-            <a href="ai-etica.html" class="nav-button">◄ Precedente</a>
-            <a href="Risorse.html" class="nav-button">Successiva ►</a>
+            <a href="ai-etica.html" class="nav-button">◄ AI Etica</a>
+            <a href="Risorse.html" class="nav-button">Risorse ►</a>
         </div>
 
         <style>
