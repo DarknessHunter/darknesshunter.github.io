@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <div id="navbar-placeholder"></div>
-  <script>
+ <script>
     // Carica la navbar
     fetch('navbar.html')
       .then(response => response.text())
@@ -37,19 +37,39 @@
           const homeLink = document.querySelector('a[href="homepage.html"]');
           if (homeLink) homeLink.classList.add('active');
         }
-        // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
-    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
-    if (risorseToggle) {
-      risorseToggle.addEventListener('click', function(e) {
-        if (e.target.classList.contains('sidebar-link')) {
-          e.preventDefault();
-          var submenu = risorseToggle.querySelector('.sidebar-submenu');
-          if (submenu) {
-            submenu.classList.toggle('open');
-          }
+
+        // ✅ RISORSE DESKTOP DROPDOWN LOGIC (FIXED TO NOT BLOCK LINKS)
+        const navRisorseToggle = document.getElementById('nav-risorse-toggle');
+        if (navRisorseToggle) {
+          const navLink = navRisorseToggle.querySelector('.nav-link');
+          navLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navRisorseToggle.classList.toggle('open');
+          });
+
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function(e) {
+            if (!navRisorseToggle.contains(e.target)) {
+              navRisorseToggle.classList.remove('open');
+            }
+          });
         }
-      });
-    }
+
+        // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+        var risorseToggle = document.getElementById('sidebar-risorse-toggle');
+        if (risorseToggle) {
+          risorseToggle.addEventListener('click', function(e) {
+            if (e.target.classList.contains('sidebar-link')) {
+              e.preventDefault();
+              var submenu = risorseToggle.querySelector('.sidebar-submenu');
+              if (submenu) {
+                submenu.classList.toggle('open');
+              }
+            }
+          });
+        }
+
         // --- MOBILE SIDEBAR LOGIC ---
         const sidebar = document.querySelector('.mobile-sidebar');
         const overlay = document.querySelector('.mobile-sidebar-overlay');
@@ -80,8 +100,8 @@
           });
         }
       });
-    
-    // --- RISORSE SUBMENU LOGIC FOR MOBILE ---
+
+    // --- RISORSE SUBMENU LOGIC FOR MOBILE (DUPLICATE, KEEPING AS YOU HAD) ---
     var risorseToggle = document.getElementById('sidebar-risorse-toggle');
     if (risorseToggle) {
       risorseToggle.addEventListener('click', function(e) {
@@ -94,53 +114,53 @@
         }
       });
     }
-      // --- mobile slider logic ---
-      document.addEventListener('DOMContentLoaded', function() {
-        function setupDefinitionsSlider() {
-            if (window.innerWidth > 768) return; // Solo mobile
-            const section = document.querySelector('.definitions-section');
-            if (!section) return;
-            const cards = Array.from(section.querySelectorAll('.def-card'));
-            const dots = Array.from(section.querySelectorAll('.dot'));
-            let activeIndex = cards.findIndex(card => card.classList.contains('active'));
-            if (activeIndex === -1) activeIndex = 0;
 
-            function updateSlider(newIndex) {
-                // Disabilita tutte le cards
-                cards.forEach(card => {
-                    card.style.display = 'none';
-                    card.classList.remove('active');
-                });
-                
-                // Disabilita tutti i dots
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // Abilita la nuova card
-                cards[newIndex].style.display = 'flex';
-                setTimeout(() => {
-                    cards[newIndex].classList.add('active');
-                }, 10); // Piccolo timeout per permettere al browser di processare il display
-                
-                // Abilita il nuovo dot
-                dots[newIndex].classList.add('active');
-                activeIndex = newIndex;
-            }
+    // --- mobile slider logic ---
+    document.addEventListener('DOMContentLoaded', function() {
+      function setupDefinitionsSlider() {
+        if (window.innerWidth > 768) return; // Solo mobile
+        const section = document.querySelector('.definitions-section');
+        if (!section) return;
+        const cards = Array.from(section.querySelectorAll('.def-card'));
+        const dots = Array.from(section.querySelectorAll('.dot'));
+        let activeIndex = cards.findIndex(card => card.classList.contains('active'));
+        if (activeIndex === -1) activeIndex = 0;
 
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', function() {
-                    updateSlider(i);
-                });
-            });
+        function updateSlider(newIndex) {
+          // Disabilita tutte le cards
+          cards.forEach(card => {
+            card.style.display = 'none';
+            card.classList.remove('active');
+          });
 
-            // Mostra la prima card all'avvio
-            updateSlider(activeIndex);
+          // Disabilita tutti i dots
+          dots.forEach(dot => dot.classList.remove('active'));
+
+          // Abilita la nuova card
+          cards[newIndex].style.display = 'flex';
+          setTimeout(() => {
+            cards[newIndex].classList.add('active');
+          }, 10); // Piccolo timeout per permettere al browser di processare il display
+
+          // Abilita il nuovo dot
+          dots[newIndex].classList.add('active');
+          activeIndex = newIndex;
         }
 
-        setupDefinitionsSlider();
-        window.addEventListener('resize', setupDefinitionsSlider);
-    });
-  </script>
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', function() {
+            updateSlider(i);
+          });
+        });
 
+        // Mostra la prima card all'avvio
+        updateSlider(activeIndex);
+      }
+
+      setupDefinitionsSlider();
+      window.addEventListener('resize', setupDefinitionsSlider);
+    });
+</script>
 
 <style>
     body {
