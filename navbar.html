@@ -450,7 +450,66 @@
         display: block;
       }
     }
+    
   }
+  .nav-dropdown {
+  position: relative;
+}
+
+/* Mega menu base */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu.mega-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 40px);
+  left: -300px;
+  width: 700px; /* ✅ make it wide! */
+  background: #fff;
+  padding: 30px 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  display: flex;
+  gap: 40px; /* ✅ space between columns */
+}
+
+.mega-menu-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.mega-menu-column strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+.mega-menu-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mega-menu-column ul li {
+  margin-bottom: 12px;
+}
+
+.mega-menu-column ul li a {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+.mega-menu-column ul li a:hover {
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
@@ -518,7 +577,31 @@
         <li><a href="ai-in-breve.html" class="nav-link">AI in Breve</a></li>
         <li><a href="ai-etica.html" class="nav-link">AI Etica</a></li>
         <li><a href="perchè-ai-etica.html" class="nav-link">Perchè AI Etica?</a></li>
-        <li><a href="Risorse.html" class="nav-link">Risorse e Strumenti</a></li>
+        <li class="nav-item nav-dropdown" id="nav-risorse-toggle">
+                      <span class="nav-link" style="cursor: pointer;">Risorse e Strumenti</span>
+            <div class="nav-dropdown-menu mega-menu">
+              <div class="mega-menu-column">
+                <strong>Metodologici</strong>
+                <ul>
+                  <li><a href="riproducibilita-robustezza.html">Riproducibilità & Robustezza</a></li>
+                  <li><a href="allineamento.html">Allineamento e Fairness</a></li>
+                  <li><a href="Trasparenza.html">Trasparenza sui Dati</a></li>
+                  <li><a href="modelli.html">Trasparenza sui Modelli</a></li>
+                  <li><a href="human.html">Hybrid Human-AI</a></li>
+                  <li><a href="Dopen.html">Dati Open e FAIR</a></li>
+                </ul>
+              </div>
+              <div class="mega-menu-column">
+                <strong>Etico-legali</strong>
+                <ul>
+                  <li><a href="https://ai-act-explorer.eu/" target="_blank">AI Act Explorer</a></li>
+                  <li><a href="https://ai-act-checklist.eu/" target="_blank">AI Act Checklist</a></li>
+                  <li><a href="https://www.raiseliguria.it/" target="_blank">Corsi di formazione RAISE</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        
         <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
       </ul>
     </div>
@@ -591,6 +674,23 @@
         });
       }
     });
+    document.addEventListener('DOMContentLoaded', function() {
+  const risorseToggle = document.getElementById('nav-risorse-toggle');
+
+  if (risorseToggle) {
+    risorseToggle.addEventListener('click', function(e) {
+      e.stopPropagation(); // prevent event bubbling
+      this.classList.toggle('open');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!risorseToggle.contains(e.target)) {
+        risorseToggle.classList.remove('open');
+      }
+    });
+  }
+});
+
   </script>
 </body>
 </html>
