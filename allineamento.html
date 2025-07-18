@@ -246,18 +246,19 @@
 </head>
 <body>
   <div id="navbar-placeholder"></div>
-  <script>
-    // Carica la navbar
+ <script>
     fetch('navbar.html')
       .then(response => response.text())
       .then(data => {
         const placeholder = document.getElementById('navbar-placeholder');
         placeholder.innerHTML = data;
+  
         // Move .main-nav outside the placeholder, after it
         const mainNav = placeholder.querySelector('.main-nav');
         if (mainNav) {
           placeholder.parentNode.insertBefore(mainNav, placeholder.nextSibling);
         }
+  
         // Evidenzia il link attivo
         const navLinks = document.querySelectorAll('.nav-link');
         const currentPage = window.location.href;
@@ -274,20 +275,24 @@
           const homeLink = document.querySelector('a[href="homepage.html"]');
           if (homeLink) homeLink.classList.add('active');
         }
-		// --- RISORSE SUBMENU LOGIC FOR MOBILE ---
-    var risorseToggle = document.getElementById('sidebar-risorse-toggle');
-    if (risorseToggle) {
-      risorseToggle.addEventListener('click', function(e) {
-        if (e.target.classList.contains('sidebar-link')) {
-          e.preventDefault();
-          var submenu = risorseToggle.querySelector('.sidebar-submenu');
-          if (submenu) {
-            submenu.classList.toggle('open');
-          }
+  
+        // ✅ DESKTOP RISORSE DROPDOWN LOGIC
+        const navRisorseToggle = document.getElementById('nav-risorse-toggle');
+        if (navRisorseToggle) {
+          const navLink = navRisorseToggle.querySelector('.nav-link');
+          navLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            navRisorseToggle.classList.toggle('open');
+          });
+          document.addEventListener('click', function(e) {
+            if (!navRisorseToggle.contains(e.target)) {
+              navRisorseToggle.classList.remove('open');
+            }
+          });
         }
-      });
-    }
-        // --- MOBILE SIDEBAR LOGIC ---
+  
+        // ✅ MOBILE SIDEBAR OPEN/CLOSE
         const sidebar = document.querySelector('.mobile-sidebar');
         const overlay = document.querySelector('.mobile-sidebar-overlay');
         const menuButton = document.querySelector('.mobile-menu-button');
@@ -316,6 +321,21 @@
             if (e.key === 'Escape') closeSidebar();
           });
         }
+  
+        // ✅ MOBILE RISORSE SUBMENU TOGGLE
+        const sidebarRisorseToggle = document.getElementById('sidebar-risorse-toggle');
+        if (sidebarRisorseToggle) {
+          const sidebarLink = sidebarRisorseToggle.querySelector('.sidebar-link');
+          sidebarLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const submenu = sidebarRisorseToggle.querySelector('.sidebar-submenu');
+            if (submenu) {
+              submenu.classList.toggle('open');
+            }
+          });
+        }
+  
       });
   </script>
   <main>
